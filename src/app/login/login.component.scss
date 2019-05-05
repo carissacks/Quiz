@@ -1,3 +1,25 @@
 body{
     font-family: 'Courier New', Courier, monospace;
 }
+
+#form{
+    background: #ffff;
+    border-radius: 2%;
+}
+
+form{
+    text-align: left;
+    .btn{
+        width: 100%;
+    }
+}
+
+#particles-js{
+    background: #050230;
+    position: absolute;
+    height: 100vh;
+}
+
+.row{
+    height: 100vh;
+}

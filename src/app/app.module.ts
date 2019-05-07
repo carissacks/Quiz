@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { ResultComponent } from './result/result.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     LoginComponent,
     QuizComponent,
     ResultComponent,
-    SideBarComponent
+    SideBarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

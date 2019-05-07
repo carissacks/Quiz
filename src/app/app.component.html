@@ -1,9 +1,14 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <!-- <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <i class="fa fa-user"></i> -->
-  <app-side-bar></app-side-bar>
+<div class="container m-0 p-0">
+  <div class="row">
+    <app-header></app-header>
+  </div>
+  <div class="row">
+    <div class="col-11">
+      <app-quiz></app-quiz>
+    </div>
+    <div class="col-1">
+      <app-side-bar></app-side-bar>
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>

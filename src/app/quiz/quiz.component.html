@@ -1,3 +1,14 @@
-<p>
-  quiz works!
-</p>
+<h1> Daftar Soal Mas </h1>
+<div style="background-color: black"> - </div>
+<div class="container">
+  <div class="text-justify col-sm-10 offset-1">
+      <div *ngFor="let n of soal.questions" style="background-color: pink; margin: 50px; padding: 20px">
+         {{ n.id }}. {{ n.question }}
+         <div><br></div>
+          <p *ngFor="let i of n.choices">
+            <input type="radio" name="answers" id="option" autocomplete="off">  {{ i.id }}. {{ i.option }}
+          </p>
+          <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
+      </div>
+  </div>
+</div>

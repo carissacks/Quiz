@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { QuestionDataService } from '../questiondata.service';
 
 @Component({
   selector: 'app-quiz',
@@ -10,8 +10,9 @@ import { AuthService } from '../auth.service';
 })
 export class QuizComponent implements OnInit {
 
-    soal: Object;
-    constructor(private data: DataService, private authService: AuthService, private router: Router) { }
+  soal: Object;
+  constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
+  // ans: boolean[15];
   
    ngOnInit() {
     this.data.getQuestion().subscribe(data => {

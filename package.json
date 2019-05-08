@@ -22,6 +22,7 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "countdown": "^2.6.0",
     "ngx-bootstrap": "^4.1.1",
     "ngx-countdown": "^3.2.0",
     "particles.js": "^2.0.0",

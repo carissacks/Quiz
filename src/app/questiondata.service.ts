@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class QuestionDataService {
 
   constructor(private http: HttpClient) { }
 
   getQuestion(){
-    return this.http.get('https://uas-pti.firebaseio.com/.json/');
+    return this.http.get('https://uas-pti.firebaseio.com/questions.json/');
   }
 }

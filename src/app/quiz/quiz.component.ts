@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { QuestionDataService } from '../questiondata.service';
 
 @Component({
   selector: 'app-quiz',
@@ -9,12 +9,12 @@ import { DataService } from '../data.service';
 export class QuizComponent implements OnInit {
 
     soal: Object;
-    constructor(private data: DataService) { }
+    constructor(private data: QuestionDataService) { }
+  ans: boolean[15];
   
    ngOnInit() {
     this.data.getQuestion().subscribe(data => {
       this.soal = data
-      console.log(this.soal)
     })
   }
 }

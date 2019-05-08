@@ -12,9 +12,10 @@ export class QuizComponent implements OnInit {
 
   soal: Object;
   constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
-  // ans: boolean[15];
+    ans: Array<boolean>;
+  constructor(private data: QuestionDataService) { }
   
-   ngOnInit() {
+  ngOnInit() {
     this.data.getQuestion().subscribe(data => {
       this.soal = data
     })

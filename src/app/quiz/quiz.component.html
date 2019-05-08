@@ -8,7 +8,7 @@
         {{ n.id }}. {{ n.question }}
          <div><br></div>
           <p *ngFor="let i of n.choices" style="background-color: white; padding: 5px">
-            <input type="radio" name="answers" id="option" autocomplete="off">  {{ i.id }}. {{ i.option }}
+            <input type="radio" name="answers" id="option" autocomplete="off">  {{ i.option }}
           </p>
           <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
       </div>

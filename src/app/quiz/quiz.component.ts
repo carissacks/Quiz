@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { QuestionDataService } from '../questiondata.service';
+import { Question } from '../question';
 
 @Component({
   selector: 'app-quiz',
@@ -10,15 +11,27 @@ import { QuestionDataService } from '../questiondata.service';
 })
 export class QuizComponent implements OnInit {
 
-  soal: Object;
+  public soal: Array<Question>= [];
+
   constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
-    ans: Array<boolean>;
+    ans: Array<boolean>= [];
 
   ngOnInit() {
     this.data.getQuestion().subscribe(data => {
       this.soal = data
-    })
+    });
+
+    // for(i=0; i<this.data.size(); i++){
+      
+    // }
+    // console.log(this.soal[0].question);
   }
+  //   ngOnInit(){
+  //     this.data.getQuestion().subscribe(data => {
+  //       this.soal = data
+  //     });
+  //     console.log(this.soal)
+  // }
 
   logout(){
     this.authService.logout();

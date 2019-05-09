@@ -5,7 +5,7 @@
   <div class="text-justify col-12 offset-0">
     
       <div *ngFor="let n of soal" class="question m-5 p-3"> 
-        {{ n.id }}. {{ n.question }}
+        {{ n.id }}. {{ n.question }} {{n.show}}
           <div><br></div>
           <p *ngFor="let i of n.choices"> <!-- ;let [x]= index"> -->
             <input type="radio" name="answers" id="option" autocomplete="off"> {{ i.option }}

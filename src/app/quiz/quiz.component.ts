@@ -25,7 +25,7 @@ export class QuizComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
-  public String: option (index: integer){
-    return index+97;
-  }
+  // public String: option (index: integer){
+  //   return index+97;
+  // }
 }

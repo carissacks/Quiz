@@ -1,0 +1,60 @@
+
+<div class="container">
+  <h2>Sign Up</h2>
+  <div class="jumbotron">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.fname.errors }">
+            <input type="text" class="form-control" formControlName="fname" placeholder="Enter First Name">
+          </p>
+          <div *ngIf="isSubmitted && formControls.username.errors">
+            <div *ngIf="formControls.fname.errors.required" style="color: red">First Name is required</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.lname.errors }">
+            <input type="text" class="form-control" formControlName="lname" placeholder="Enter Last Name">
+          </p>
+          <div *ngIf="isSubmitted && formControls.lname.errors">
+            <div *ngIf="formControls.lname.errors.required" style="color: red">Last Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nim">Nomor Induk Mahasiswa (NIM)</label>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.nim.errors }">
+            <input type="text" class="form-control" formControlName="nim" placeholder="Enter NIM">
+          </p>
+          <div *ngIf="isSubmitted && formControls.nim.errors">
+            <div *ngIf="formControls.nim.errors.required" style="color: red">NIM is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
+            <input type="text" class="form-control" formControlName="username" placeholder="Enter Username">
+          </p>
+          <div *ngIf="isSubmitted && formControls.username.errors">
+            <div *ngIf="formControls.username.errors.required" style="color: red">Username is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          </p>
+          <div *ngIf="isSubmitted && formControls.password.errors">
+            <div *ngIf="formControls.password.errors.required" style="color: red">Password is required</div>
+          </div> 
+        </div>
+
+        <input class="btn btn-primary mb-1" type="submit" value="Signup">
+        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+    </form>
+  </div>
+</div>

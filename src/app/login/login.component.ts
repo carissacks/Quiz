@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
-import { Router } from  '@angular/router';
-import { User } from  '../user';
+import { Router, ActivatedRoute } from  '@angular/router';
+import { UserdataService } from '../userdata.service';
+// import { User } from  '../user';
 import { AuthService } from  '../auth.service';
 
 @Component({
@@ -12,14 +13,21 @@ import { AuthService } from  '../auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted  =  false;
-  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder ) { }
+  returnUrl: string;
+  // currentUser = Object;
+  constructor(
+    private data: UserdataService,
+    private authService: AuthService, 
+    private route: ActivatedRoute,
+    private router: Router, 
+    private formBuilder: FormBuilder 
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.loginForm  =  this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
-   });
-   
+    });
   }
 
   get formControls() { return this.loginForm.controls; }
@@ -33,5 +41,5 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value);
     this.router.navigateByUrl('/quiz');
   }
-
+  
 }

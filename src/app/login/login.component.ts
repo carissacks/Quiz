@@ -5,6 +5,8 @@ import { UserdataService } from '../userdata.service';
 // import { User } from  '../user';
 import { AuthService } from  '../auth.service';
 
+declare var particlesJS: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,10 +26,15 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {    
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+
     this.loginForm  =  this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+    
   }
 
   get formControls() { return this.loginForm.controls; }

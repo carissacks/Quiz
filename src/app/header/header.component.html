@@ -1,16 +1,17 @@
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-  </li>
-</ul>
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-</div>
+<nav class="navbar navbar-dark bg-dark container-fluid align-items-center justify-content-end">
+  <div class="btn-group">
+      <button type="button" class=" dropdown-toggle px-2 far fa-user btn-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nama Nim
+      </button>
+      <div class="dropdown-menu">
+        <button type="button" class="btn btn-dark fas fa-bars" (click)="logout()"></button>
+      </div>
+    </div>
+    
+  <div class="px-2 far fa-clock">
+    <app-timer></app-timer>
+  </div>
+<!-- 
+    <button type="button" class="btn btn-dark fas fa-bars" (click)="logout()"></button> -->
+    <button type="button" class="btn btn-dark fas fa-bars" (click)="sidebarClicked()"></button>
+</nav>

@@ -1,0 +1,5 @@
+<countdown [style.color]="isGoingtoend ? '#b10303' : 'black'" [config]="{leftTime: 61, notify: [ 60 ]}"
+(start)="onStart()"
+(finished)="onFinished()"
+(notify)="onNotify()"> $!h!:$!m!:$!s!
+</countdown>

@@ -1,8 +1,17 @@
-<p>
-  side-bar works!
-</p>
-<countdown [style.color]="isGoingtoend ? '#b10303' : 'black'" [config]="{leftTime: 61, notify: [ 60 ]}"
-(start)="onStart()"
-(finished)="onFinished()"
-(notify)="onNotify()">$!h!:$!m!:$!s!
-</countdown>
+<!-- <div class="container p-2"> -->
+  <div class="row timer align-items-center justify-content-center">
+    <app-timer></app-timer>
+  </div>
+  <div class="row align-items-center justify-content-center">
+      <button type="button" class="btn btn-success col-1 col-md-2 m-2">1</button>
+      <button type="button" class="btn btn-success col-1 col-md-2 m-2">1</button>
+      <button type="button" class="btn btn-danger col-1 col-md-2 m-2">1</button>
+  </div>
+  <div class="row align-items-center justify-content-center">
+      <button type="button" class="btn btn-success col-1 col-md-2 m-2">1</button>
+      <button type="button" class="btn btn-success col-1 col-md-2 m-2">1</button>
+      <button type="button" class="btn btn-success col-1 col-md-2 m-2">1</button>
+      <!-- pake for, kalo indexnya bisa di mod3, buat class row baru -->
+  </div>
+<!-- </div> -->
+

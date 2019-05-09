@@ -1,16 +1,23 @@
-<h1> Daftar Soal Mas </h1>    
-<button (click)="logout()">Logout</button>
-<div style="background-color: black"> - </div>
-<div class="container" *ngIf="soal">
-  <div class="text-justify col-12 offset-0">
-    
-      <div *ngFor="let n of soal" class="question m-5 p-3"> 
-        {{ n.id }}. {{ n.question }} {{n.show}}
-          <div><br></div>
-          <p *ngFor="let i of n.choices"> <!-- ;let [x]= index"> -->
-            <input type="radio" name="answers" id="option" autocomplete="off"> {{ i.option }}
-          </p>
-          <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
+<div class="container-fluid p-0">
+  <!-- <div class="row"> -->
+    <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
+  <!-- </div> -->
+  <div class="row">
+    <div class="col">
+      <h1> Daftar Soal Mas {{showSidebar}} </h1>    
+      <div class="container" *ngIf="soal">
+        <div class="text-justify col-12 offset-0">
+          <div *ngFor="let n of soal" class="question m-5 p-3"> 
+            {{ n.id }}. {{ n.question }} {{n.show}}
+              <p *ngFor="let i of n.choices"> <!-- ;let [x]= index"> -->
+                <input type="radio" name="answers" id="option" autocomplete="off"> {{ i.option }}
+              </p>
+                <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
+          </div>
+        </div>
       </div>
+    </div>
+    <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
+      <app-side-bar ></app-side-bar>
+    </div>
   </div>
-</div>

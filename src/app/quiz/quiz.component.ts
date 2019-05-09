@@ -12,9 +12,12 @@ import { Question } from '../question';
 export class QuizComponent implements OnInit {
 
   public soal: Array<Question>= [];
+  public ans: Array<boolean>= [];
+  public showSidebar: boolean= true;
 
   constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
-    ans: Array<boolean>= [];
+  
+  
 
   ngOnInit() {
     this.data.getQuestion().subscribe(data => {
@@ -26,6 +29,12 @@ export class QuizComponent implements OnInit {
     // }
     // console.log(this.soal[0].question);
   }
+
+  changeSidebar(show){
+    console.log('A');
+    this.showSidebar= show;
+    console.log(show);
+  }
   //   ngOnInit(){
   //     this.data.getQuestion().subscribe(data => {
   //       this.soal = data
@@ -33,10 +42,7 @@ export class QuizComponent implements OnInit {
   //     console.log(this.soal)
   // }
 
-  logout(){
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
-  }
+
 
   // public String: option (index: integer){
   //   return index+97;

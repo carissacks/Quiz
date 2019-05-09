@@ -12,6 +12,7 @@ import { ResultComponent } from './result/result.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SignupComponent } from './signup/signup.component';
     ResultComponent,
     SideBarComponent,
     HeaderComponent,
-    SignupComponent
+    SignupComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

@@ -2,11 +2,11 @@
 </div>
 <div class="container-fluid">
   <div class="row justify-content-center align-items-center">
-    <div id="form" class="col-3 p-4">
-      <h1>Try Out SMA</h1>
+    <div id="form" class="col-6 col-md-4 p-4">
+      <h1>Try Out SMP</h1>
       <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username" class="mb-1">Username</label>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
             <input type="text" class="form-control" formControlName="username" placeholder="Enter Username">
           </p>
@@ -18,7 +18,7 @@
           <!-- show or hide pake parameter -->
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <label for="exampleInputPassword1" class="mb-1">Password</label>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
             <input type="password" class="form-control" formControlName="password" placeholder="Password">
           </p>
@@ -35,3 +35,4 @@
       </form>
     </div>
   </div>
+</div>

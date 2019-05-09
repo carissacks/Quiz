@@ -13,8 +13,7 @@ export class QuizComponent implements OnInit {
   soal: Object;
   constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
     ans: Array<boolean>;
-  constructor(private data: QuestionDataService) { }
-  
+
   ngOnInit() {
     this.data.getQuestion().subscribe(data => {
       this.soal = data
@@ -24,5 +23,9 @@ export class QuizComponent implements OnInit {
   logout(){
     this.authService.logout();
     this.router.navigateByUrl('/login');
+  }
+
+  public String: option (index: integer){
+    return index+97;
   }
 }

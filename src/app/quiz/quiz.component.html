@@ -2,13 +2,13 @@
 <button (click)="logout()">Logout</button>
 <div style="background-color: black"> - </div>
 <div class="container" *ngIf="soal">
-  <div class="text-justify col-sm-10 offset-1">
+  <div class="text-justify col-12 offset-0">
     
-      <div *ngFor="let n of soal" style="background-color: pink; margin: 50px; padding: 20px"> 
+      <div *ngFor="let n of soal" class="question m-5 p-3"> 
         {{ n.id }}. {{ n.question }}
          <div><br></div>
-          <p *ngFor="let i of n.choices" style="background-color: white; padding: 5px">
-            <input type="radio" name="answers" id="option" autocomplete="off">  {{ i.option }}
+          <p *ngFor="let i of n.choices; let [x]= index">
+            <input type="radio" name="answers" id="option" autocomplete="off">  {{var}}. {{ i.option }}
           </p>
           <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
       </div>

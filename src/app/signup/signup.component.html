@@ -1,4 +1,3 @@
-
 <div class="container">
   <h2>Sign Up</h2>
   <div class="jumbotron">
@@ -8,7 +7,7 @@
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.fname.errors }">
             <input type="text" class="form-control" formControlName="fname" placeholder="Enter First Name">
           </p>
-          <div *ngIf="isSubmitted && formControls.username.errors">
+          <div *ngIf="isSubmitted && formControls.fname.errors">
             <div *ngIf="formControls.fname.errors.required" style="color: red">First Name is required</div>
           </div>
         </div>
@@ -20,6 +19,17 @@
           </p>
           <div *ngIf="isSubmitted && formControls.lname.errors">
             <div *ngIf="formControls.lname.errors.required" style="color: red">Last Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <p [ngClass]="{ 'has-error': isSubmitted && formControls.gender.errors }">          
+            <input formControlName="gender" type="radio" value="M">M<br/>
+            <input formControlName="gender" type="radio" value="F">F
+          </p>
+          <div *ngIf="isSubmitted && formControls.gender.errors">
+            <div *ngIf="formControls.gender.errors.required" style="color: red">Gender is required</div>
           </div>
         </div>
 
@@ -50,6 +60,7 @@
           </p>
           <div *ngIf="isSubmitted && formControls.password.errors">
             <div *ngIf="formControls.password.errors.required" style="color: red">Password is required</div>
+            <div *ngIf="formControls.password.errors.pattern" style="color: red">Password must be at least 1 lowercase, uppercase, number and 8 characters</div>
           </div> 
         </div>
 

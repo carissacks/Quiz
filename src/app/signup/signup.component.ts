@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  isSubmitted: false;
+  isSubmitted = false;
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,private authService: AuthService) { }
@@ -18,17 +18,19 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
       fname: ['', Validators.required],
+      gender: ['',Validators.required],
       lname: ['', Validators.required],
       nim: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,})')]]
     });
   }
 
   get formControls() { return this.signupForm.controls; }
 
   onSubmit() {
-    // this.isSubmitted = true;
+    console.log("test");
+    this.isSubmitted = true;
 
     // stop here if form is invalid
     if (this.signupForm.invalid) {

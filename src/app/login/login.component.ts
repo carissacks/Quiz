@@ -13,7 +13,7 @@ import { AuthService } from  '../auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted  =  false;
-  returnUrl: string;
+  // returnUrl: string;
   // currentUser = Object;
   constructor(
     private data: UserdataService,

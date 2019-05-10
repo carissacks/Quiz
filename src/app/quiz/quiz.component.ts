@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { QuestionDataService } from '../questiondata.service';
@@ -12,8 +12,10 @@ import { Question } from '../question';
 export class QuizComponent implements OnInit {
 
   public soal: Array<Question>= [];
-  public ans: Array<boolean>= [];
-  public showSidebar: boolean= false;
+
+  @Input() public ans: Array<boolean>= [];
+  public showSidebar: boolean= true;
+  public idx: number;
 
   public isFirst: boolean= false;
   public carouselProp={
@@ -22,14 +24,11 @@ export class QuizComponent implements OnInit {
   }
   constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
   
-  
 
   ngOnInit() {
     this.data.getQuestion().subscribe(data => {
       this.soal = data
     });
-    console.log("HHHHH" + this.soal);
-
     // for(i=0; i<this.data.size(); i++){
       
     // }
@@ -41,16 +40,16 @@ export class QuizComponent implements OnInit {
     this.showSidebar= show;
     console.log(show);
   }
-  //   ngOnInit(){
-  //     this.data.getQuestion().subscribe(data => {
-  //       this.soal = data
-  //     });
-  //     console.log(this.soal)
-  // }
 
-
-
+  addAns(idx, jawaban){
+    this.ans[idx] = jawaban;
+    console.log('No.'+idx+' = '+this.ans[idx]);
+  }
   // public String: option (index: integer){
   //   return index+97;
   // }
+
+  getQuestion(){
+    
+  }
 }

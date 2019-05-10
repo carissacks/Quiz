@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class QuestionDataService {
 
-  private url: string= 'https://uas-pti.firebaseio.com/questions.json/';
+  private url: string = 'https://uas-pti.firebaseio.com/questions.json/';
   constructor(private http: HttpClient) { }
 
   getQuestion(): Observable<Question[]>{

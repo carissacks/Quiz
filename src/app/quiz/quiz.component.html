@@ -1,23 +1,37 @@
-<div class="container-fluid p-0">
+<div class="container-fluid bg-dark">
   <!-- <div class="row"> -->
     <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
   <!-- </div> -->
   <div class="row">
     <div class="col">
-      <h1> Daftar Soal {{showSidebar}} </h1>    
-      <div class="container" *ngIf="soal">
-        <div class="form-group-justify col-12 offset-0">
-          <div *ngFor="let n of soal" class="question m-5 p-3"> 
-            {{ n.id }}. {{ n.question }} {{n.show}}
-              <p *ngFor="let i of n.choices"> <!-- ;let [x]= index"> -->
-                <input type="radio" name="{{ n.id }}+'ans'" id="option" autocomplete="off" (click)="addAns(n.id, i.value)"> {{ i.option }} 
-              </p>
-                <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
+      <h1> Daftar Soal</h1>    
+      <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel"  data-interval="false" *ngIf="soal" data-wrap="false">
+        <div class="carousel-inner d-block w-100">
+          <div *ngFor="let n of soal; first as isFirst" [class]="isFirst ? 'carousel-item active' : 'carousel-item'">
+            <div class="container" >
+              <div class="text-justify col-12 offset-0">
+                <div  class="question m-5 p-3"> 
+                  {{ n.id }}. {{ n.question }} {{n.show}}
+                  <p *ngFor="let i of n.choices" class="m-0 ml-3"> <!-- ;let [x]= index"> -->
+                    <input type="radio" name="{{ n.id }}+'ans'" id="option" autocomplete="off" (click)="addAns(n.id-1, i.value)"> {{ i.option }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
     <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
-      <app-side-bar ></app-side-bar>
+      <app-side-bar [ans]="ans"></app-side-bar>
     </div>
   </div>

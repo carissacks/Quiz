@@ -10,7 +10,7 @@
           <div *ngFor="let n of soal" class="question m-5 p-3"> 
             {{ n.id }}. {{ n.question }} {{n.show}}
               <p *ngFor="let i of n.choices"> <!-- ;let [x]= index"> -->
-                <input type="radio" name="{{ n.id }}+'ans'" id="option" autocomplete="off" (click)="addAns(n.id, i.value)"> {{ i.option }} 
+                <input type="radio" name="{{ n.id }}+'ans'" id="option" autocomplete="off" (click)="addAns(n.id-1, i.value)"> {{ i.option }} 
               </p>
                 <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
           </div>
@@ -18,6 +18,6 @@
       </div>
     </div>
     <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
-      <app-side-bar ></app-side-bar>
+      <app-side-bar [ans]="ans"></app-side-bar>
     </div>
   </div>

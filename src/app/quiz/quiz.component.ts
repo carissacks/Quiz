@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { QuestionDataService } from '../questiondata.service';
@@ -12,7 +12,7 @@ import { Question } from '../question';
 export class QuizComponent implements OnInit {
 
   public soal: Array<Question>= [];
-  public ans: Array<boolean>= [];
+  @Input() public ans: Array<boolean>= [];
   public showSidebar: boolean= true;
   public idx: number;
 
@@ -43,4 +43,8 @@ export class QuizComponent implements OnInit {
   // public String: option (index: integer){
   //   return index+97;
   // }
+
+  getQuestion(){
+    
+  }
 }

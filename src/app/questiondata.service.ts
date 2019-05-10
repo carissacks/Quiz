@@ -11,6 +11,8 @@ export class QuestionDataService {
   private url: string = 'https://uas-pti.firebaseio.com/questions.json/';
   constructor(private http: HttpClient) { }
 
+  
+
   getQuestion(): Observable<Question[]>{
     return this.http.get<Question[]>(this.url);
   }

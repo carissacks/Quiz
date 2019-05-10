@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { QuestionDataService } from '../questiondata.service';
 import { Question } from '../question';
+import { User } from '../user';
+import { UserdataService } from '../userdata.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-quiz',
@@ -10,13 +13,18 @@ import { Question } from '../question';
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
-
+  users: User[] = [];
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
   public showSidebar: boolean= true;
   public idx: number;
 
-  constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
+  constructor(
+    private data: QuestionDataService, 
+    private authService: AuthService, 
+    private router: Router,
+    private userdataService: UserdataService  
+  ) { }
   
 
   ngOnInit() {
@@ -24,6 +32,11 @@ export class QuizComponent implements OnInit {
       this.soal = data
     });
 
+    this.userdataService.getUser()
+      .pipe(first())
+      .subscribe(users => {
+        this.users = users;
+    });
     // for(i=0; i<this.data.size(); i++){
       
     // }

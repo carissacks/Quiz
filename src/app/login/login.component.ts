@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Router, ActivatedRoute } from  '@angular/router';
 import { UserdataService } from '../userdata.service';
-// import { User } from  '../user';
+import { User } from  '../user';
 import { AuthService } from  '../auth.service';
+import { first } from 'rxjs/operators';
 
 declare var particlesJS: any;
 
@@ -15,14 +16,16 @@ declare var particlesJS: any;
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted  =  false;
-  // returnUrl: string;
+  returnUrl: string;
+  error = '';
+  user: User[];
   // currentUser = Object;
   constructor(
+    private formBuilder: FormBuilder,
     private data: UserdataService,
     private authService: AuthService, 
     private route: ActivatedRoute,
-    private router: Router, 
-    private formBuilder: FormBuilder 
+    private router: Router
   ) { }
 
   ngOnInit() {    
@@ -30,23 +33,41 @@ export class LoginComponent implements OnInit {
       console.log('callback - particles.js config loaded');
     });
 
+    this.data.getUser().subscribe(data => {
+      this.user = data
+    });
+
     this.loginForm  =  this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
     
+    // reset login status
+    this.authService.logout();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get formControls() { return this.loginForm.controls; }
 
   login(){
-    console.log(this.loginForm.value);
+    // console.log(this.loginForm.value);
     this.isSubmitted = true;
     if(this.loginForm.invalid){
       return;
     }
-    this.authService.login(this.loginForm.value);
-    this.router.navigateByUrl('/quiz');
+
+    this.authService.login(this.formControls.username.value, this.formControls.password.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigateByUrl('/quiz');
+                },
+                error => {
+                    this.error = error;
+                });
+    
   }
   
 }

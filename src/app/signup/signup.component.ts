@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { UserdataService } from '../userdata.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-signup',
@@ -12,8 +14,12 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   isSubmitted = false;
 
-  constructor(private formBuilder: FormBuilder,
-    private router: Router,private authService: AuthService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private userDataService: UserdataService  
+  ) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({

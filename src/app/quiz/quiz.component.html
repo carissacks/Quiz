@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="container-fluid p-0">
   <!-- <div class="row"> -->
     <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
@@ -21,3 +22,43 @@
       <app-side-bar ></app-side-bar>
     </div>
   </div>
+=======
+<div id="particles-js" class="container-fluid">
+</div>
+<div class="jumbotron">
+  <button (click)="logout()">Logout</button>
+  <div class="row justify-content-center align-items-center"> 
+    <div class="col-8 p-4" style="text-align: center; background-color: white">
+        <h1> Daftar Soal </h1>    
+          <div class="text-justify col-sm-10 offset-1">
+            <div *ngFor="let n of soal" style="background-color: pink; margin: 50px; padding: 20px"> 
+              {{ n.id }}. {{ n.question }}
+               <div><br></div>
+                <p *ngFor="let i of n.choices" style="background-color: white; padding: 5px"> 
+                 <input type="radio" name="answers" id="option" autocomplete="off"> <li> {{ i.option }} </li>
+                </p>
+                <!-- {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX-->
+                <button (click)="prev()">Prev Question</button>   <button (click)="next()">Next Question</button>
+              </div>
+          </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h1> Daftar Soal Mas </h1>    
+<button (click)="logout()">Logout</button>
+<div style="background-color: black"> - </div>
+<div class="container" *ngIf="soal">
+  <div class="text-justify col-sm-10 offset-1">
+    
+      <div *ngFor="let n of soal" style="background-color: pink; margin: 50px; padding: 20px"> 
+        {{ n.id }}. {{ n.question }}
+         <div><br></div>
+          <p *ngFor="let i of n.choices" style="background-color: white; padding: 5px">
+            <input type="radio" name="answers" id="option" autocomplete="off">  {{ i.option }}
+          </p>
+          {{ n.choices[0].id }} UNTUK AKSES ID CHOICES DENGAN INDEX
+      </div>
+  </div>
+</div> -->
+>>>>>>> Stashed changes

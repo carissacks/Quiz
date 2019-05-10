@@ -10,24 +10,16 @@ import { Question } from '../question';
   styleUrls: ['./quiz.component.scss']
 })
 export class QuizComponent implements OnInit {
-<<<<<<< Updated upstream
 
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
   public showSidebar: boolean= true;
+  public idx: number;
 
   constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
-  
   
 
   ngOnInit() {
-=======
-  soal: Object;
-
-  constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
-
-   ngOnInit() {
->>>>>>> Stashed changes
     this.data.getQuestion().subscribe(data => {
       this.soal = data
     });
@@ -43,20 +35,12 @@ export class QuizComponent implements OnInit {
     this.showSidebar= show;
     console.log(show);
   }
-<<<<<<< Updated upstream
-  //   ngOnInit(){
-  //     this.data.getQuestion().subscribe(data => {
-  //       this.soal = data
-  //     });
-  //     console.log(this.soal)
-  // }
 
-
-
+  addAns(idx, jawaban){
+    this.ans[idx] = jawaban;
+    console.log('No.'+idx+' = '+this.ans[idx]);
+  }
   // public String: option (index: integer){
   //   return index+97;
   // }
 }
-=======
-}
->>>>>>> Stashed changes

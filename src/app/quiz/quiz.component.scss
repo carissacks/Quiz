@@ -1,12 +1,10 @@
+$black1: #302e2e;
+$black2: #242424;
+$black3: #1f1f1f;
+$black4: #0f0e0e;
+
 body{
     font-family: 'Courier New', Courier, monospace;
-}
-
-button{
-    background: rgb(1, 29, 51);
-    border-color: transparent;
-    color: #fff;
-    cursor: pointer;
 }
 
 .question{
@@ -15,4 +13,8 @@ button{
 
 ol{
     list-style-type: lower-alpha;
+}
+
+.bg-dark{
+    background-color: $black3;
 }

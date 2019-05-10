@@ -13,8 +13,13 @@ export class QuizComponent implements OnInit {
 
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
-  public showSidebar: boolean= true;
+  public showSidebar: boolean= false;
 
+  public isFirst: boolean= false;
+  public carouselProp={
+    "carousel-item": true,
+    "active": this.isFirst
+  }
   constructor(private data: QuestionDataService, private authService: AuthService, private router: Router) { }
   
   
@@ -23,6 +28,7 @@ export class QuizComponent implements OnInit {
     this.data.getQuestion().subscribe(data => {
       this.soal = data
     });
+    console.log("HHHHH" + this.soal);
 
     // for(i=0; i<this.data.size(); i++){
       

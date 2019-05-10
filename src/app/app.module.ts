@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CountdownModule } from 'ngx-countdown';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,7 +32,8 @@ import { TimerComponent } from './timer/timer.component';
     ReactiveFormsModule,
     AppRoutingModule,
     CountdownModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbCarouselModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,19 +12,20 @@ import { first } from 'rxjs/operators';
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.scss']
 })
-export class QuizComponent implements OnInit {
-  users: User[] = [];
-  public soal: Array<Question>= [];
 
-  @Input() public ans: Array<boolean>= [];
+export class QuizComponent implements OnInit {
+  public users: User[] = [];
+  public soal: Array<Question>= [];
+  public soals: Array<Question>= [];
   public showSidebar: boolean= true;
   public idx: number;
-
   public isFirst: boolean= false;
   public carouselProp={
     "carousel-item": true,
     "active": this.isFirst
   }
+  @Input() public ans: Array<boolean>= [];
+
   constructor(
     private data: QuestionDataService, 
     private authService: AuthService, 
@@ -33,19 +34,40 @@ export class QuizComponent implements OnInit {
   ) { }  
 
   ngOnInit() {
-    this.data.getQuestion().subscribe(data => {
-      this.soal = data
-    });
+    this.data.getQuestions().subscribe(data => {
+      this.soal= data
+    })
+
+    console.log(this.soal);
 
     this.userdataService.getUser()
       .pipe(first())
       .subscribe(users => {
         this.users = users;
-    });
-    // for(i=0; i<this.data.size(); i++){
-      
-    // }
-    // console.log(this.soal[0].question);
+    })
+
+    for(let i of this.soal){
+      this.addQuestion(i);
+    }
+    // this.data.getQuestions().subscribe(data => {
+    //   this.soal = data
+    // });
+    // this.soal= this.data.getQuestion();
+    // this.data.getData()
+    //   .map((soal: Array<any>) =>{
+    //     let result: Array<any>= [];
+    //     if(soal){
+    //       soal.forEach((erg) => {
+    //         result.push(new Question(erg.id, erg.question, erg.choices,));
+    //       });
+    //     }
+    //     return result;
+    //   });
+  }
+  
+  addQuestion(item){
+    this.soals.push(item);
+    console.log("AAA"+this.soals);
   }
 
   changeSidebar(show){
@@ -58,11 +80,5 @@ export class QuizComponent implements OnInit {
     this.ans[idx] = jawaban;
     console.log('No.'+idx+' = '+this.ans[idx]);
   }
-  // public String: option (index: integer){
-  //   return index+97;
-  // }
 
-  getQuestion(){
-    
-  }
 }

@@ -4,9 +4,22 @@ interface Choice {
     value: boolean
 }
 
-export interface Question {
+export class Question {
     id: number;
     question: string;
     choices: Array<Choice>;
-    show: boolean;
+    visited: boolean;
+    answered: boolean;
+
+    constructor( id: number, question: string, choices: Array<Choice>){
+        this.id= id;
+        this.question= question;
+        this.choices= choices;
+        this.visited= false;
+        this.answered= false;
+    }
+
+    getSoal(){
+        return this.question;
+    }
 }

@@ -7,13 +7,13 @@
       <h1> Daftar Soal</h1>    
       <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel"  data-interval="false" *ngIf="soal" data-wrap="false">
         <div class="carousel-inner d-block w-100">
-          <div *ngFor="let n of soal; first as isFirst" [class]="isFirst ? 'carousel-item active' : 'carousel-item'">
+          <div *ngFor="let n of soal; let idx= index; first as isFirst" [class]="isFirst ? 'carousel-item active' : 'carousel-item'">
             <div class="container" >
               <div class="text-justify col-12 offset-0">
                 <div  class="question m-5 p-3"> 
-                  {{ n.id }}. {{ n.question }} {{n.visited}}
+                  {{ n.id }}. {{ n.question }}
                   <p *ngFor="let i of n.choices" class="m-0 ml-3"> <!-- ;let [x]= index"> -->
-                    <input type="radio" name="{{ n.id }}+'ans'" id="option" autocomplete="off" (click)="addAns(n.id-1, i.value)"> {{ i.option }}
+                    <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.value)"> {{ i.option }} {{idx}}
                   </p>
                 </div>
               </div>

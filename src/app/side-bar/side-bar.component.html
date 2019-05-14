@@ -6,7 +6,7 @@
     <div *ngFor="let i of soal; let x = index" class="col-1 col-md-3 m-2 qnaList">
       <!-- <div *ngIf="x%2 === 0" class="w-100 d-none d-sm-block mt-4">
       </div> -->
-      <button type="button" [class]="ans[x] == null ? 'btn btn-basic' : 'btn btn-success'"> {{ i.id }} </button>
+      <button type="button" [class]="ans[x] == null ? 'btn btn-basic' : 'btn btn-success'"> {{ x+1 }} </button>
     </div>
   </div>
 </div>

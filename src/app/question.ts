@@ -5,21 +5,21 @@ interface Choice {
 }
 
 export class Question {
-    id: number;
-    question: string;
-    choices: Array<Choice>;
-    visited: boolean;
-    answered: boolean;
+    public id: number;
+    public question: string;
+    public choices: Array<Choice>;
+    public visited: boolean;
+    public answered: boolean;
 
     constructor( id: number, question: string, choices: Array<Choice>){
         this.id= id;
         this.question= question;
         this.choices= choices;
-        this.visited= false;
+        // this.visited= false;
         this.answered= false;
     }
 
-    getSoal(){
+    getSoal(): string{
         return this.question;
     }
 }

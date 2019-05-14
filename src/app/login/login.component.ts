@@ -5,6 +5,7 @@ import { UserdataService } from '../userdata.service';
 import { User } from  '../user';
 import { AuthService } from  '../auth.service';
 import { first } from 'rxjs/operators';
+import { QuestionDataService } from '../questiondata.service';
 
 declare var particlesJS: any;
 
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     private data: UserdataService,
     private authService: AuthService, 
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private qdata: QuestionDataService
   ) { }
 
   ngOnInit() {    
@@ -62,6 +64,7 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
+                    this.qdata.randQuestion();
                     this.router.navigateByUrl('/quiz');
                 },
                 error => {

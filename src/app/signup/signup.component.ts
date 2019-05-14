@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { UserdataService } from '../userdata.service';
 // import { User } from '../user';
-import { first } from 'rxjs/operators';
+// import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -42,13 +42,15 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.invalid) {
         return;
     }
+    
+    // this.authService.signup(this.formControls.fname.value, this.formControls.gender.value, this.formControls.lname.value, 
+    //   this.formControls.nim.value, this.formControls.username.value, this.formControls.password.value)
+    //         .pipe(first())
+    //         .subscribe( x => {
+    //           // console.log(x);
+    //           this.router.navigateByUrl('/login');
+    //         });
 
-    this.authService.signup(this.formControls.fname.value, this.formControls.gender.value, this.formControls.lname.value, 
-      this.formControls.nim.value, this.formControls.username.value, this.formControls.password.value)
-            .pipe(first())
-            .subscribe( x => {
-              // console.log(x);
-              this.router.navigateByUrl('/login');
-            });
+    
   }
 }

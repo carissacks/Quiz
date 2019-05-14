@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -29,11 +29,12 @@ export class AuthService {
             for(let i = 0;i < user.length;i++){
               if (username == user[i].username && password == user[i].password) {
                   this.flag = true;
+                  console.log(user);
                   // store user details in local storage to keep user logged in between page refreshes
                   localStorage.setItem('currentUser', JSON.stringify(user[i]));
                   this.currentUserSubject.next(user[i]);
                   // user = JSON.parse(localStorage.getItem('currentUser'));
-                  // console.log(user);
+                  // console.log("ini current user "+ user);
               }
             }
 
@@ -51,13 +52,14 @@ logout() {
     this.currentUserSubject.next(null);
 }
 
-signup(fName: string, gender: string, lName: string, nim: string, username: string, password: string): Observable<User[]>{
-  return this.http.post<User[]>(`https://uas-pti.firebaseio.com/users.json`, { fName, gender, lName, nim, password, username }) //kalo mau masukin k json pke post return this.http.get<any>(`https://uas-pti.firebaseio.com/users.json`, { id, fname, gender, lname, nim, password, username })
-        .pipe(map(user => {
-          console.log(user);
-
-            return user;
-          }));
-}
+// signup(fName: string, gender: string, lName: string, nim: string, username: string, password: string): Observable<User[]>{
+//   let data = { fName, gender, lName, nim, password, username };
+//   return this.http.post<any>(`https://uas-pti.firebaseio.com/users.json`, data)
+//         .pipe(map(user => {
+//           console.log(user);
+//           return user;
+        
+//       }));
+// }
 
 }

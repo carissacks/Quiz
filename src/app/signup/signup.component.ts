@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { UserdataService } from '../userdata.service';
-import { User } from '../user';
+// import { User } from '../user';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -35,7 +36,6 @@ export class SignupComponent implements OnInit {
   get formControls() { return this.signupForm.controls; }
 
   onSubmit() {
-    console.log("test");
     this.isSubmitted = true;
 
     // stop here if form is invalid
@@ -43,5 +43,12 @@ export class SignupComponent implements OnInit {
         return;
     }
 
+    this.authService.signup(this.formControls.fname.value, this.formControls.gender.value, this.formControls.lname.value, 
+      this.formControls.nim.value, this.formControls.username.value, this.formControls.password.value)
+            .pipe(first())
+            .subscribe( x => {
+              // console.log(x);
+              this.router.navigateByUrl('/login');
+            });
   }
 }

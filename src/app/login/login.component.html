@@ -29,10 +29,12 @@
           </div>
           
         </div>
+        <div *ngIf="error" class="alert alert-danger">Username or Password is incorrect</div>
         <input class="btn btn-primary mb-1" type="submit" value="Login">
         <a [routerLink]="['/signup']" class="btn btn-secondary">Sign Up</a>
         <!-- <button type="submit" class="btn btn-primary mb-1">Login</button>
         <button type="submit" class="btn btn-primary">Sign up</button> -->
+        
       </form>
       
     </div>

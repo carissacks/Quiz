@@ -8,14 +8,17 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  // let userloggedin = localStorage.getItem('currentUser');
   constructor(private authService: AuthService, private router: Router) { }
+  user = JSON.parse(localStorage.getItem('currentUser'));
+  nama =  this.user.fName + " " + this.user.lName;
+  nim = this.user.nim;
 
   ngOnInit() {
   }
 
   @Output() showSidebarChange = new EventEmitter();
-  showSidebar:boolean= false;
+  showSidebar:boolean= true;
 
   sidebarClicked(){
     if (this.showSidebar==true) this.showSidebar=false;
@@ -24,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
     this.showSidebarChange.emit(this.showSidebar);
   }
+  
   logout(){
     this.authService.logout();
     this.router.navigateByUrl('/login');

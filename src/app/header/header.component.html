@@ -1,17 +1,13 @@
-<nav class="navbar navbar-dark container-fluid align-items-center justify-content-end">
+<nav class="navbar container-fluid align-items-center justify-content-end p-0 m-0">
   <div class="btn-group">
-      <button type="button" class=" dropdown-toggle px-4 far fa-user btn-secondary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{nama}} {{nim}}
-      </button>
-      <div class="dropdown-menu" style="background-color: grey">
-        <button type="button" class="btn btn-outline-light fas fa-bars" (click)="logout()"> logout</button>
-      </div>
+    <button type="button" class=" data-user dropdown-toggle p-0 m-0 far fa-user btn-light " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{nama}} {{nim}}
+    </button>
+    <div class="dropdown-menu" style="background-color: #eeeeee">
+      <button type="button" class="btn fas fa-sign-out-alt" (click)="logout()"> logout</button>
     </div>
-    
-  <div class="px-2 far fa-clock">
-    <app-timer></app-timer>
   </div>
 <!-- 
-    <button type="button" class="btn btn-dark fas fa-bars" (click)="logout()"></button> -->
-    <button type="button" class="btn btn-outline-light  fas fa-bars" (click)="sidebarClicked()"></button>
+  <button type="button" class="btn btn-dark fas fa-bars" (click)="logout()"></button> -->
+  <button type="button" class="btn btn-outline-light  fas fa-bars" (click)="sidebarClicked()"></button>
 </nav>

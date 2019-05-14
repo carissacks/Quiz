@@ -23,10 +23,12 @@ export class SideBarComponent implements OnInit {
   noAns: string = '<button type="button" class="btn btn col-1 col-md m-2>{{ idx }} </button>';
 
   ngOnInit() {
-    this.data.getQuestion().subscribe(data => {
+    this.data.getQuestions().subscribe(data => {
       this.soal = data;
-    }) 
+    });
+    // this.soal= this.data.getQuestion();
     this.ans = this.answer.ans;   
+    // console.log(this.soal);
   }
   
   dispBtn(){

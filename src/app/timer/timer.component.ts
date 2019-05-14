@@ -12,6 +12,7 @@ export class TimerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("nyala");
   }
 
   public isGoingtoend: boolean= false;

@@ -36,7 +36,7 @@
         <div class="form-group">
           <label for="nim">Nomor Induk Mahasiswa (NIM)</label>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.nim.errors }">
-            <input type="text" class="form-control" formControlName="nim" placeholder="Enter NIM">
+            <input type="number" class="form-control" formControlName="nim" placeholder="Enter NIM">
           </p>
           <div *ngIf="isSubmitted && formControls.nim.errors">
             <div *ngIf="formControls.nim.errors.required" style="color: red">NIM is required</div>

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted  =  false;
   returnUrl: string;
-  error = '';
+  error = false;
   user: User[];
   // currentUser = Object;
   constructor(
@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {    
     particlesJS.load('particles-js', 'assets/particles.json', function() {
       console.log('callback - particles.js config loaded');
+    // this.error = false;
     });
 
     this.data.getUser().subscribe(data => {
@@ -54,20 +55,23 @@ export class LoginComponent implements OnInit {
   login(){
     // console.log(this.loginForm.value);
     this.isSubmitted = true;
+    this.error = false;
     if(this.loginForm.invalid){
       return;
     }
 
     this.authService.login(this.formControls.username.value, this.formControls.password.value)
             .pipe(first())
-            .subscribe(
-                data => {
-                    this.router.navigateByUrl('/quiz');
-                },
-                error => {
-                    this.error = error;
-                });
-    
+            .subscribe( x => {
+              var user = JSON.parse(localStorage.getItem('currentUser'));
+              console.log(user);
+              if(user.username == "null" || user.password == "null"){
+                this.error = true;
+                localStorage.removeItem(user);
+              }else {
+                this.router.navigateByUrl('/quiz');
+              }
+            });
   }
   
 }

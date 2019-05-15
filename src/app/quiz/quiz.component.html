@@ -59,12 +59,10 @@
       <!------QUESTION CONTAINER----->
       
     </div>
+    <!---------SIDE BAR------- -->
+    <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
+      <app-side-bar [ans]="ans"></app-side-bar>
+    </div>
+    <!------END OFSIDE BAR------>
   </div>
-
-  <!---------SIDE BAR------- -->
-  <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
-    <app-side-bar [ans]="ans"></app-side-bar>
-  </div>
-  <!------END OFSIDE BAR------>
-
 </div>

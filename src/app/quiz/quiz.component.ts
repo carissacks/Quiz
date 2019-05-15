@@ -16,9 +16,10 @@ import { Question } from '../question';
 
 export class QuizComponent implements OnInit {
   public users: User[] = [];
-  // public rawQuestion: Question[]= [];
-  public soal: Question[]= [];
-  public showSidebar: boolean= false;
+  public soal: Array<Question>= [];
+  public soals: Array<Question>= [];
+  public showSidebar: boolean= true;
+  public goToQuestion: number;
   public idx: number;
   public isFirst: boolean= false;
   public carouselProp={
@@ -97,3 +98,8 @@ export class QuizComponent implements OnInit {
   // }
 
 }
+  // getNumberQuestion(numb){
+  //   console.log(numb);
+  //   // this.goToQuestion = numb;
+  // }
+// }

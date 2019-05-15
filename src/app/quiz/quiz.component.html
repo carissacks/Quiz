@@ -1,6 +1,6 @@
 <div class="container-fluid bg-dark  p-0">
   <!-- <div class="row"> -->
-    <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
+  <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
   <!-- </div> -->
   <div class="row">
     <div class="col">
@@ -18,9 +18,9 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
+        <a class="carousel-control-next" href="#carouselExampleInterval" role="button"></a>
         <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -32,6 +32,6 @@
       </div>
     </div>
     <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
-      <app-side-bar [ans]="ans"></app-side-bar>
+      <app-side-bar [ans]="ans" (goToQuestion)="getNumberQuestion($event)"></app-side-bar>
     </div>
   </div>

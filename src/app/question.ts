@@ -10,6 +10,7 @@ export class Question {
     public choices: Array<Choice>;
     public visited: boolean;
     public answered: boolean;
+    private valueAns: boolean;
 
     constructor( id: number, question: string, choices: Array<Choice>){
         this.id= id;
@@ -17,6 +18,7 @@ export class Question {
         this.choices= choices;
         // this.visited= false;
         this.answered= false;
+        this.valueAns= false;
     }
 
     getSoal(): string{

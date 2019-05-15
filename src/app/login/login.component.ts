@@ -70,7 +70,8 @@ export class LoginComponent implements OnInit {
                 this.error = true;
                 localStorage.removeItem(user);
               }else {
-                this.qdata.randQuestion();
+                // this.qdata.randQuestion();
+                this.qdata.initialize();
                 this.router.navigateByUrl('/quiz');
               }
             });

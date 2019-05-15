@@ -13,10 +13,10 @@ import { Router } from '@angular/router';
 export class SideBarComponent implements OnInit {
   public soal: Array<Question>= [];
   @Input() public ans: Array<boolean>= [];
- 
+  @Output() public outans: Array<boolean>=[];
   public idx: number;
   public index: number;
-  public id: number;
+  public numOfQuestion: number;
 
   constructor(
     private data: QuestionDataService,
@@ -28,19 +28,20 @@ export class SideBarComponent implements OnInit {
     //   this.soal = data;
     // });
     this.soal= this.data.getQuestions();
-    this.ans = this.answer.ans;   
+    this.ans = this.answer.ans;
+    this.outans = this.answer.ans;
     // console.log(this.soal);
   }
 
-  numOfQuestion: number;
   @Output() goToQuestion =  new EventEmitter();
+  @Output() finish = new EventEmitter();
 
-  numberClicked(id){
-    console.log(id.type());
-    this.goToQuestion.emit(this.numOfQuestion);
+  numberClicked(numOfQuestion) {
+    this.goToQuestion.emit(numOfQuestion);
   }
 
   finishExam(){
-    this.router.navigateByUrl('/result');
+    this.finish.emit(this.outans);
+    this.router.navigateByUrl("/result");
   }
 } 

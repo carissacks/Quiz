@@ -46,15 +46,15 @@ export class QuestionDataService {
   }
 
   getQuestions(): Array<Question>{
-    // if(this.init) 
+    if(this.init) 
     return this.questions;
-    // else {
-    //   console.log("init dulu");
-    //   this.randQuestion();
-    //   // console.log(this.questions);
-    //   // console.log(this.questions[0].getSoal());
-    //   return this.questions;
-    // }
+    else {
+      console.log("init dulu");
+      this.randQuestion();
+      // console.log(this.questions);
+      // console.log(this.questions[0].getSoal());
+      return this.questions;
+    }
   }
 
 

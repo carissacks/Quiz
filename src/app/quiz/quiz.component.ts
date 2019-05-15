@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { QuestionDataService } from '../questiondata.service';
@@ -15,6 +15,7 @@ import { Question } from '../question';
 })
 
 export class QuizComponent implements OnInit {
+  
   public users: User[] = [];
   public soal: Array<Question>= [];
   public soals: Array<Question>= [];
@@ -52,6 +53,9 @@ export class QuizComponent implements OnInit {
         this.users = users;
     })
 
+  
+
+
 
     // this.data.getQuestions().subscribe(data => {
     //   this.soal = data
@@ -72,11 +76,16 @@ export class QuizComponent implements OnInit {
   // random(){
   //   return Math.floor((Math.random() * 15));
   // }
+   
+  getNumberQuestion(numb){
+    $('#carousel').carousel(numb);
+  }
 
   changeSidebar(show){
     console.log('Aku ga kuat :((');
     this.showSidebar= show;
     console.log(show);
+    console.log(this.questionNum);
   }
 
   addAns(idx, jawaban){
@@ -96,10 +105,6 @@ export class QuizComponent implements OnInit {
   //   }
   //   console.log(this.soal);
   // }
-
 }
-  // getNumberQuestion(numb){
-  //   console.log(numb);
-  //   // this.goToQuestion = numb;
-  // }
+  
 // }

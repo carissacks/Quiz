@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CountdownModule } from 'ngx-countdown';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AngularFireModule } from 'angularfire2';
+import { firebaseConfig } from './../environments/firebase.config';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';

@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   }
 
   @Output() showSidebarChange = new EventEmitter();
-  showSidebar:boolean= true;
+  showSidebar:boolean= false;
 
   sidebarClicked(){
     if (this.showSidebar==true) this.showSidebar=false;

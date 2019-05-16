@@ -36,7 +36,8 @@ import { TimerComponent } from './timer/timer.component';
     AppRoutingModule,
     CountdownModule,
     HttpClientModule,
-    NgbCarouselModule.forRoot()
+    NgbCarouselModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,39 @@
 body{
     font-family: 'Courier New', Courier, monospace;
 }
+
+$black1: #302e2e;
+$black2: #242424;
+$black3: #1f1f1f;
+$black4: #0f0e0e;
+$grey: #f1f4f5;
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#secondContainer{
+    background-color: $grey;
+}
+
+.questContainer{
+    background: #f7f7f7;
+    font-size: 2vh;
+}
+
+.choice{
+    background-color: #eeeeee;
+    border-radius: 4px;
+}
+
+.title{
+    font-size: 5vh;
+    color: white;
+}
+
+.alert{
+    border-radius: 4px;
+}

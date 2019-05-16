@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountdownComponent } from 'ngx-countdown';
 import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-timer',
@@ -11,7 +12,7 @@ export class TimerComponent implements OnInit {
   public waktu: number;
   public isGoingtoend: boolean= false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     // console.log("nyala");
@@ -38,6 +39,6 @@ export class TimerComponent implements OnInit {
 
   }
   onFinish(){
-
+    this.router.navigateByUrl("/result");
   }
 }

@@ -35,8 +35,6 @@ export class QuestionDataService {
         let i= 0;
         while(i<this.rawQuestions.length){
           let a= this.random();
-          // console.log(a);
-          // console.log(this.rawQuestions[a].visited);
           if (this.rawQuestions[a].visited==false){
             this.rawQuestions[a].visited= true;
             this.questions.push(new Question (this.rawQuestions[a].id, this.rawQuestions[a].question, this.rawQuestions[a].choices));
@@ -62,17 +60,6 @@ export class QuestionDataService {
     this.init= false;
     this.questions=[];
   }
-
-
-
-  // getQuestions(): Question[]{
-  //   this.getRawQuestions().subscribe(data => {
-  //     this.rawQuestions= data;
-  //     console.log(this.rawQuestions[0].question);
-  //     this.randomQuestion();
-  //     console.log("a");
-  //   })
-  // }
 
   random(){
     return Math.floor((Math.random() * 15));
@@ -121,3 +108,12 @@ export class QuestionDataService {
 //     console.log("SSSS" + this.source);
 //     return this.questions;
 //   }
+
+  // getQuestions(): Question[]{
+  //   this.getRawQuestions().subscribe(data => {
+  //     this.rawQuestions= data;
+  //     console.log(this.rawQuestions[0].question);
+  //     this.randomQuestion();
+  //     console.log("a");
+  //   })
+  // }

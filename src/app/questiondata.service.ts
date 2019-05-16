@@ -35,8 +35,8 @@ export class QuestionDataService {
         let i= 0;
         while(i<this.rawQuestions.length){
           let a= this.random();
-          console.log(a);
-          console.log(this.rawQuestions[a].visited);
+          // console.log(a);
+          // console.log(this.rawQuestions[a].visited);
           if (this.rawQuestions[a].visited==false){
             this.rawQuestions[a].visited= true;
             this.questions.push(new Question (this.rawQuestions[a].id, this.rawQuestions[a].question, this.rawQuestions[a].choices));

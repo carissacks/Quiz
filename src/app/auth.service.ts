@@ -33,6 +33,7 @@ export class AuthService {
                   // store user details in local storage to keep user logged in between page refreshes
                   localStorage.setItem('currentUser', JSON.stringify(user[i]));
                   this.currentUserSubject.next(user[i]);
+                  this.setTime();
                   // user = JSON.parse(localStorage.getItem('currentUser'));
                   // console.log("ini current user "+ user);
               }
@@ -43,13 +44,26 @@ export class AuthService {
             }
             return user;
         }));
-}
+  }
 
-logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
-    this.currentUserSubject.next(null);
-}
+  logout() {
+      // remove user from local storage to log user out
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('loginTime');
+      this.currentUserSubject.next(null);
+  }
+  setTime(){
+    let date= new Date();
+    let time= date.getTime();
+    let hour= date.getHours();
+    let minute= date.getMinutes();
+    let second= date.getSeconds();
+    localStorage.setItem('loginTime', JSON.stringify({time: time}));
+    // console.log("time " + time);
+    // console.log("hour "+hour);
+    // console.log("minute " + minute);
+    // console.log("sec "+second);
+  }
 
 // signup(fName: string, gender: string, lName: string, nim: string, username: string, password: string): Observable<User[]>{
 //   let data = { fName, gender, lName, nim, password, username };

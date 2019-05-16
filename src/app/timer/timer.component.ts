@@ -8,31 +8,36 @@ import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
+  public waktu: number;
+  public isGoingtoend: boolean= false;
 
   constructor() { }
 
   ngOnInit() {
-    console.log("nyala");
+    // console.log("nyala");
+    let loginTime= JSON.parse(localStorage.getItem('loginTimeMiliSec'));
+    let currDate= new Date();
+    let currTime= currDate.getTime()/1000; // Dari milisecond jadi second
+    let timeGiven= 300; //in seconds
+    let loginTimeInSecond= (loginTime.time)/1000//Dari milisecond jadi second
+    this.waktu= (loginTimeInSecond + timeGiven)-currTime;
   }
 
-  public isGoingtoend: boolean= false;
-
-  public timeClasses ={
-    "GoingToEnd" : this.isGoingtoend,
-    "EarlyStart" : !this.isGoingtoend
-  }
+  // public timeClasses ={
+  //   "GoingToEnd" : this.isGoingtoend,
+  //   "EarlyStart" : !this.isGoingtoend
+  // }
 
   onNotify(){
     this.isGoingtoend= true;
     // alert("Cepetan woi");
     console.log(this.isGoingtoend);
   }
+
   onStart(){
 
   }
   onFinish(){
 
   }
-
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 }

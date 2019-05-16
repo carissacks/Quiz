@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { UserdataService } from '../userdata.service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 // import { User } from '../user';
 // import { first } from 'rxjs/operators';
 
@@ -19,7 +21,8 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private userDataService: UserdataService  
+    private userDataService: UserdataService
+    // private angularFire: AngularFireModule 
   ) { }
 
   ngOnInit() {

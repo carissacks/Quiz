@@ -74,7 +74,7 @@ export class QuizComponent implements OnInit {
   }
 
   getNumberQuestion(numb){
-    // $('#carousel').carousel(numb);
+    // $('.carousel').carousel(numb);
   }
 
   changeSidebar(show){

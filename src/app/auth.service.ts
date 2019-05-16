@@ -51,6 +51,12 @@ logout() {
     this.currentUserSubject.next(null);
 }
 
+signup(fName: string, gender: string, lName: string, nim: string, username: string, password: string): Observable<User[]>{
+    let data = { fName, gender, lName, nim, password, username };
+
+}
+
+
 // signup(fName: string, gender: string, lName: string, nim: string, username: string, password: string): Observable<User[]>{
 //   let data = { fName, gender, lName, nim, password, username };
 //   return this.http.post<any>(`https://uas-pti.firebaseio.com/users.json`, data)

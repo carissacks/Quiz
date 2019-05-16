@@ -49,7 +49,7 @@ export class AuthService {
   logout() {
       // remove user from local storage to log user out
       localStorage.removeItem('currentUser');
-      localStorage.removeItem('loginTime');
+      localStorage.removeItem('loginTimeMiliSec');
       this.currentUserSubject.next(null);
   }
   setTime(){
@@ -58,7 +58,7 @@ export class AuthService {
     let hour= date.getHours();
     let minute= date.getMinutes();
     let second= date.getSeconds();
-    localStorage.setItem('loginTime', JSON.stringify({time: time}));
+    localStorage.setItem('loginTimeMiliSec', JSON.stringify({time: time}));
     // console.log("time " + time);
     // console.log("hour "+hour);
     // console.log("minute " + minute);

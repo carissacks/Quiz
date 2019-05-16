@@ -20,14 +20,14 @@ export class AuthService {
 
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
-  } 
+  }
 
   login(username: string, password: string): Observable<User[]> {
-    return this.http.get<any>(`https://uas-pti.firebaseio.com/users.json`) 
+    return this.http.get<any>(`https://uas-pti.firebaseio.com/users.json`)
         .pipe(map(user => {
-            console.log("ini user 1" + user[1]);
-            for(let i = 0;i < user.length;i++){
-              if (username == user[i].username && password == user[i].password) {
+            console.log('ini user 1' + user[1]);
+            for (let i = 0; i < user.length; i++) {
+              if (username === user[i].username && password === user[i].password) {
                   this.flag = true;
                   console.log(user);
                   // store user details in local storage to keep user logged in between page refreshes
@@ -38,10 +38,9 @@ export class AuthService {
               }
             }
 
-            if(this.flag == false) {
+            if (this.flag === false) {
               localStorage.setItem('currentUser', JSON.stringify({username: "null", password: "null"}));
             }
-
             return user;
         }));
 }
@@ -58,7 +57,6 @@ logout() {
 //         .pipe(map(user => {
 //           console.log(user);
 //           return user;
-        
 //       }));
 // }
 

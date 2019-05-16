@@ -33,4 +33,6 @@ export class TimerComponent implements OnInit {
   onFinish(){
 
   }
+
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 }

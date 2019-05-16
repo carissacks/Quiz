@@ -62,18 +62,19 @@ export class LoginComponent implements OnInit {
     }
 
     this.authService.login(this.formControls.username.value, this.formControls.password.value)
-            .pipe(first())
-            .subscribe( x => {
-              var user = JSON.parse(localStorage.getItem('currentUser'));
-              console.log(user);
-              if(user.username == "null" || user.password == "null"){
-                this.error = true;
-                localStorage.removeItem(user);
-              }else {
-                this.qdata.randQuestion();
-                this.router.navigateByUrl('/quiz');
-              }
-            });
+      .pipe(first())
+      .subscribe( x => {
+        var user = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(user);
+        if(user.username == "null" || user.password == "null"){
+          this.error = true;
+          localStorage.removeItem(user);
+        }else {
+          // this.qdata.randQuestion();
+          this.qdata.initialize();
+          this.router.navigateByUrl('/quiz');
+        }
+    });
   }
   
 }

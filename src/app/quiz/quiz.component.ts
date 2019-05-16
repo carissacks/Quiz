@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { QuestionDataService } from '../questiondata.service';
@@ -15,10 +15,12 @@ import { Question } from '../question';
 })
 
 export class QuizComponent implements OnInit {
+  
   public users: User[] = [];
-  // public rawQuestion: Question[]= [];
-  public soal: Question[]= [];
-  public showSidebar: boolean= false;
+  public soal: Array<Question>= [];
+  public soals: Array<Question>= [];
+  public showSidebar: boolean= true;
+  public goToQuestion: number;
   public idx: number;
   public isFirst: boolean= false;
   public carouselProp={
@@ -51,6 +53,9 @@ export class QuizComponent implements OnInit {
         this.users = users;
     })
 
+  
+
+
 
     // this.data.getQuestions().subscribe(data => {
     //   this.soal = data
@@ -68,9 +73,9 @@ export class QuizComponent implements OnInit {
     //   });
   }
 
-  // random(){
-  //   return Math.floor((Math.random() * 15));
-  // }
+  getNumberQuestion(numb){
+    // $('#carousel').carousel(numb);
+  }
 
   changeSidebar(show){
     console.log('Aku ga kuat :((');
@@ -95,5 +100,6 @@ export class QuizComponent implements OnInit {
   //   }
   //   console.log(this.soal);
   // }
-
 }
+  
+// }

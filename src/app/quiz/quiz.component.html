@@ -1,56 +1,62 @@
 <div class="container-fluid bg-dark p-0" id="quizPage">
-  <!-- <div class="row"> -->
-    <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
-  <!-- </div> -->
+  <!-----------HEADER----------->
+  <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
+  <!--------END OF HEADER------->
   <div class="row">
     <div class="col">
-      <div class="row title justify-content-between p-5 mb-2">
-      <h1 class="col">Try Out UMN 2019 </h1> 
-      <div class="col text-right px-2 far fa-clock">
-          <app-timer></app-timer>
-      </div>
-      </div>
-      <div class="container">
-      <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel"  data-interval="false" *ngIf="soal" data-wrap="false">
-        <div class="carousel-inner d-block w-100">
 
-          <!---------LOOP SOAL------- -->
-          <div *ngFor="let n of soal; let idx= index; first as isFirst" [class]="isFirst ? 'carousel-item active' : 'carousel-item'">
-            <div class="container questContainer text-justify p-5" >
-              <div class=" questionSection row">
-                <div class="no col-1 align-items-center text-center p-0 m-0">{{ idx+1 }}.</div>
-                <div class="col-10 p-0 m-0">
-                <div class="question row mb-4">{{ n.question }}</div>
-              <!-- </div> -->
-              <div class="choices row px-1 px-md-2">
-                <!---------LOOP PILIHAN--------->
-                <div *ngFor="let i of n.choices" class="col-md-12 choice p-2 mb-2 ml-2">
-                  <p class="m-0">
-                    <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.value)"> {{ i.option }}
-                  </p>
+      <!----------TITLE--------->
+      <div class="row title justify-content-between p-5 mb-2">
+        <h1 class="col">Try Out UMN 2019 </h1> 
+        <div class="col text-right px-2 far fa-clock">
+            <app-timer></app-timer>
+        </div>
+      </div>
+      <!------END OF TITLE----->
+      
+      <!------QUESTION CONTAINER----->
+      <div class="container">
+        <div id="carousel" class="carousel slide" data-ride="carousel"  data-interval="false" *ngIf="soal" data-wrap="false">
+          <div class="carousel-inner d-block w-100">
+
+            <!---------LOOP SOAL------- -->
+            <div *ngFor="let n of soal; let idx= index; first as isFirst" [class]="isFirst ? 'carousel-item active' : 'carousel-item'" id="carouselitem{{idx}}">
+              <div class="container questContainer text-justify p-5" >
+                <div class=" questionSection row">
+                  <div class="no col-1 align-items-center text-center p-0 m-0">{{ idx+1 }}.</div>
+                  <div class="col-10 p-0 m-0">
+                    <div class="question row mb-4">{{ n.question }}</div>
+                    <div class="choices row px-1 px-md-2">
+                  <!---------LOOP PILIHAN--------->
+                      <div *ngFor="let i of n.choices" class="col-md-12 choice p-2 mb-2 ml-2">
+                        <p class="m-0">
+                          <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.value)"> {{ i.option }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+              <!---------END OF LOOP SOAL------- -->
+            
                 </div>
-                <!------END OF LOOP PILIHAN------>
-              </div>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon fas fa-hand-point-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon fas fa-hand-point-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
             </div>
           </div>
-          <!---------END OF LOOP SOAL------- -->
-          
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon fas fa-hand-point-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-          <span class="carousel-control-next-icon fas fa-hand-point-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
-      </div>
+      <!------QUESTION CONTAINER----->
     </div>
-  </div>
-
+    <!---------SIDE BAR------- -->
     <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
       <app-side-bar [ans]="ans"></app-side-bar>
     </div>
+    <!------END OFSIDE BAR------>
   </div>
+</div>

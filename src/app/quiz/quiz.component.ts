@@ -37,13 +37,6 @@ export class QuizComponent implements OnInit {
   ) { }  
 
   ngOnInit() {
-    // this.data.getQuestions().subscribe(data => {
-    //   this.rawQuestion= data;
-    //   console.log(this.rawQuestion[0].question);
-    //   this.randomQuestion();
-    //   console.log("a");
-    // })
-
     this.soal= this.data.getQuestions();
     console.log(this.soal);
     
@@ -52,10 +45,25 @@ export class QuizComponent implements OnInit {
       .subscribe(users => {
         this.users = users;
     })
+  }
+  changeSidebar(show){
+    console.log('Aku');
+    this.showSidebar= show;
+    console.log(show);
+  }
 
+  addAns(idx, jawaban){
+    this.ans[idx] = jawaban;
+    console.log('No.'+idx+' = '+this.ans[idx]);
+  }
   
 
-
+    // this.data.getQuestions().subscribe(data => {
+    //   this.rawQuestion= data;
+    //   console.log(this.rawQuestion[0].question);
+    //   this.randomQuestion();
+    //   console.log("a");
+    // })
 
     // this.data.getQuestions().subscribe(data => {
     //   this.soal = data
@@ -71,22 +79,10 @@ export class QuizComponent implements OnInit {
     //     }
     //     return result;
     //   });
-  }
 
-  getNumberQuestion(numb){
-    // $('.carousel').carousel(numb);
-  }
-
-  changeSidebar(show){
-    console.log('Aku ga kuat :((');
-    this.showSidebar= show;
-    console.log(show);
-  }
-
-  addAns(idx, jawaban){
-    this.ans[idx] = jawaban;
-    console.log('No.'+idx+' = '+this.ans[idx]);
-  }
+  // getNumberQuestion(numb){
+  // $('#carousel').carousel(numb);
+  // }
 
   // randomQuestion(){
   //   let i= 0;

@@ -8,9 +8,13 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  // let userloggedin = localStorage.getItem('currentUser');
+
   constructor(private authService: AuthService, private router: Router) { }
+  
+  // untuk memanggil local storage yang berisi currrent user / user yang sedang menjalani quiz
   user = JSON.parse(localStorage.getItem('currentUser'));
+
+  //pendeklarasian yang nantinya akan digunakan di html
   nama =  this.user.fName + " " + this.user.lName;
   nim = this.user.nim;
 
@@ -18,7 +22,7 @@ export class HeaderComponent implements OnInit {
   }
 
   @Output() showSidebarChange = new EventEmitter();
-  showSidebar:boolean= false;
+  showSidebar:boolean= true;
 
   sidebarClicked(){
     if (this.showSidebar==true) this.showSidebar=false;

@@ -2,17 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { UserdataService } from '../userdata.service';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-// import { User } from '../user';
-// import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
+
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   isSubmitted = false;
@@ -21,37 +17,35 @@ export class SignupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private userDataService: UserdataService
-    // private angularFire: AngularFireModule 
   ) { }
 
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
-      fname: ['', Validators.required],
+      fName: ['', Validators.required],
       gender: ['',Validators.required],
-      lname: ['', Validators.required],
+      lName: ['', Validators.required],
       nim: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,})')]]
+      password: ['', [Validators.required, Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,})')]] 
+      // untuk pattern password, d untuk adanya minimal 1 angka, [a-z] untuk adanya minimal 1 huruf kecil, [A-Z] untuk adanya minimal 1 huruf besar, {8,} maksudnya adalah minimal 8 karakter
     });
   }
 
+  //sebagai form control di signup
   get formControls() { return this.signupForm.controls; }
 
   onSubmit() {
     this.isSubmitted = true;
 
-    // stop here if form is invalid
+    // Bila tidak valid maka akan berhenti disini
     if (this.signupForm.invalid) {
         return;
     }
-    
-    // this.authService.signup(this.formControls.fname.value, this.formControls.gender.value, this.formControls.lname.value, 
-    //   this.formControls.nim.value, this.formControls.username.value, this.formControls.password.value)
-    //         .pipe(first())
-    //         .subscribe( x => {
-    //           // console.log(x);
-    //           this.router.navigateByUrl('/login');
-    //         }); 
+
+    // Untuk melanjutkan signup di authService
+    this.authService.signup(this.signupForm.value);
+
+    // Setelah sign up berhasil maka akan teralihkan ke bagian login
+    this.router.navigateByUrl('/login');
   }
 }

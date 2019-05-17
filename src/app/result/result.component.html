@@ -1,1 +1,48 @@
-<div>Hai</div>
+<div class="container-fluid bg-dark p-0" id="firstContainer">
+    <!-----------HEADER----------->
+    <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
+    <!--------END OF HEADER------->
+    <div class="row">
+        <div class="col">
+
+        <!----------TITLE--------->
+        <div class="row title justify-content-between p-5 mb-2">
+            <h1 class="col">Result </h1> 
+            <div class="col text-right px-2 far fa-clock">
+                <!-- mau kasih tau dia dapet berapa, benernya berapa dari berapa. -->
+            </div>
+        </div>
+        <!------END OF TITLE----->
+        
+        <!------QUESTION CONTAINER----->
+        <div class="container py-5 mb-5" id="secondContainer">
+          <!-- <div id="carousel" class="carousel slide" data-ride="carousel"  data-interval="false" *ngIf="soal" data-wrap="false">
+            <div class="carousel-inner d-block w-100"> -->
+
+                <!---------LOOP SOAL------- -->
+                <div *ngFor="let n of soal; let idx = index">
+                    <div class="container questContainer text-justify p-3" >
+                        <div class=" questionSection row">
+                            <div class="no col-1 align-items-center text-center p-0 m-0">{{ idx+1 }}.</div>
+                            <div class="col-10 p-0 m-0">
+                                <div class="question row mb-4">{{ n.question }}</div>
+                                <div class="choices row px-1 px-md-2">
+                        <!---------LOOP PILIHAN--------->
+                                    <div *ngFor="let i of n.choices" [class]="i.value? 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 choice p-2 mb-2 ml-2'">
+                                        <p class="m-0">
+                                            <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.value)"> {{ i.option }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    <!---------END OF LOOP SOAL------- -->
+                        </div>
+                    </div>
+                </div>
+            <!-- </div>
+          </div> -->
+        </div>
+        <!------QUESTION CONTAINER----->
+      </div>
+    </div>
+</div>

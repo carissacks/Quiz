@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false, //kalo gamau ditampilin, jadi true
-  firebase: {
+  firebaseConfig: { // diambil dari firebase yang digunakan 
     apiKey: "AIzaSyBqTpp58Z0DgIVCdAzru0Tz8RvAvscrfIA",
     authDomain: "uas-pti.firebaseapp.com",
     databaseURL: "https://uas-pti.firebaseio.com",

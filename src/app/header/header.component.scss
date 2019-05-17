@@ -3,7 +3,7 @@ $black2: #242424;
 $black3: #1f1f1f;
 $black4: #0f0e0e;
 
-.navbar{
+nav{
     color: white;
     text-align: right;
     background-color: #135ba4;
@@ -12,13 +12,19 @@ $black4: #0f0e0e;
 button{
     background-color: transparent;
     border: none;
-    height: 100%;
-    padding: 1%;
+    // height: 100%;
     margin: 0;
+    border-radius: 1.5px;
+    color: white;
+    &:hover, &:focus{
+        background-color: #104983;
+        color: white;
+    }
 }
 
-.data-user{
-    height: 100%;
-    color: white;
-    padding: 1%;
+.dropdown-menu{
+    cursor: pointer;
+    &:hover{
+        background-color: #eeeeee;
+    }
 }

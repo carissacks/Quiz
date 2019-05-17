@@ -19,7 +19,7 @@ export class QuizComponent implements OnInit {
   public users: User[] = [];
   public soal: Array<Question>= [];
   public soals: Array<Question>= [];
-  public showSidebar: boolean= true;
+  public showSidebar: boolean= false;
   public goToQuestion: number;
   public idx: number;
   public isFirst: boolean= false;
@@ -28,6 +28,7 @@ export class QuizComponent implements OnInit {
     "active": this.isFirst
   }
   @Input() public ans: Array<boolean>= [];
+  public ansidx: Array<number>= [];
 
   constructor(
     private data: QuestionDataService, 
@@ -52,7 +53,8 @@ export class QuizComponent implements OnInit {
     console.log(show);
   }
 
-  addAns(idx, jawaban){
+  addAns(idx, idxjawaban, jawaban){ 
+    this.ansidx[idx] = idxjawaban;
     this.ans[idx] = jawaban;
     console.log('No.'+idx+' = '+this.ans[idx]);
   }

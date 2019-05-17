@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
-  public waktu: number;
+  public waktu: number;// Kalo mau edit time, lgsg kasih value di sini. yang this.waktu nya di comment.
   public isGoingtoend: boolean= false;
 
   constructor(private router: Router) { }
@@ -39,6 +39,8 @@ export class TimerComponent implements OnInit {
 
   }
   onFinished(){
+    console.log("aaa");
+    alert("udah kelar woi. login lagi lah.");
     this.router.navigateByUrl("/result");
   }
 }

@@ -6,6 +6,8 @@ import { QuizComponent } from './quiz/quiz.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResultComponent } from './result/result.component';
 import { AuthGuard } from './auth.guard';
+import { AnswerService } from './answer.service';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -17,6 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  providers: [AnswerService],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

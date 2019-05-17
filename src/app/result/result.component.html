@@ -7,10 +7,8 @@
 
         <!----------TITLE--------->
         <div class="row title justify-content-between p-5 mb-2">
-            <h1 class="col">Result </h1> 
-            <div class="col text-right px-2 far fa-clock">
+            <h1 class="col">Result </h1>
                 <!-- mau kasih tau dia dapet berapa, benernya berapa dari berapa. -->
-            </div>
         </div>
         <!------END OF TITLE----->
         
@@ -28,9 +26,9 @@
                                 <div class="question row mb-4">{{ n.question }}</div>
                                 <div class="choices row px-1 px-md-2">
                         <!---------LOOP PILIHAN--------->
-                                    <div *ngFor="let i of n.choices" [class]="i.value? 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 choice p-2 mb-2 ml-2'">
+                                    <div *ngFor="let i of n.choices; let idx2 = index" [ngClass]="['i.value? 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 p-2 mb-2 ml-2 alert'">
                                         <p class="m-0">
-                                            <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.value)"> {{ i.option }}
+                                            <input type="radio" disabled="true" name="{{ idx }}+'ans'" id="option" autocomplete="off"> {{ i.option }}
                                         </p>
                                     </div>
                                 </div>

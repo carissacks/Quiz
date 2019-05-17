@@ -30,7 +30,7 @@
                   <!---------LOOP PILIHAN--------->
                       <div *ngFor="let i of n.choices" class="col-md-12 choice p-2 mb-2 ml-2">
                         <p class="m-0">
-                          <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.value)"> {{ i.option }}
+                          <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.id, i.value)"> {{ i.option }}
                         </p>
                       </div>
                     </div>
@@ -55,7 +55,7 @@
     </div>
     <!---------SIDE BAR------- -->
     <div *ngIf="showSidebar" class="col-md-3 col-4 p-3">
-      <app-side-bar [ans]="ans"></app-side-bar>
+      <app-side-bar [ans]="ans" [ansidx]="ansidx"></app-side-bar>
     </div>
     <!------END OFSIDE BAR------>
   </div>

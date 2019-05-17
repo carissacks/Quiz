@@ -38,7 +38,7 @@ export class TimerComponent implements OnInit {
   onStart(){
 
   }
-  onFinish(){
+  onFinished(){
     this.router.navigateByUrl("/result");
   }
 }

@@ -26,7 +26,7 @@
                                 <div class="question row mb-4">{{ n.question }}</div>
                                 <div class="choices row px-1 px-md-2">
                         <!---------LOOP PILIHAN--------->
-                                    <div *ngFor="let i of n.choices; let idx2 = index" [ngClass]="['i.value? 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 p-2 mb-2 ml-2 alert'">
+                                    <div *ngFor="let i of n.choices; let idx2 = index" [class]="i.value? 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 p-2 mb-2 ml-2 alert'">
                                         <p class="m-0">
                                             <input type="radio" disabled="true" name="{{ idx }}+'ans'" id="option" autocomplete="off"> {{ i.option }}
                                         </p>

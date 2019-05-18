@@ -14,12 +14,9 @@
 
       <!-----------TEXT----------->
       <div class="col-4 p-5 text-center">
-        <!-- jika nilai diatas 60 -->
-        <h1 *ngIf="score>70" class="my-2"> MARVELOUS!</h1> 
-        <!-- jika nilai sama dengan atau di bawah 60 -->
-        <h1 *ngIf="score<=70" class="my-2"> You can improve!</h1>
-        <!-- kasih score -->
-        <h1 class="my-2"> Result : {{ score }} / 100</h1>
+        <h1 *ngIf="score>70" class="my-2"> MARVELOUS!</h1> <!--jika nilai diatas 60-->
+        <h1 *ngIf="score<=70" class="my-2"> You can improve!</h1><!--jika nilai sama dengan atau di bawah 60-->
+        <h1 class="my-2"> Result : {{ score }} / 100</h1><!--kasih score-->
         <button class="btn finish-btn my-3" style="text-align: center" (click)="seeResult()">See Answers</button>
       </div>
       <!---------END OF TEXT--------->

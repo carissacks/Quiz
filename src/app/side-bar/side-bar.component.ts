@@ -44,8 +44,12 @@ export class SideBarComponent implements OnInit {
 
   finishExam(){
     //mau kasih windows.prompt buat yakinin dia mau submit apa kepencet doang
-    this.ansdata.setAnswerIdx(this.ansidx);
-    this.ansdata.setAnswer(this.ans);
-    this.router.navigateByUrl("/score");
+    var x2 = confirm('Are you sure want to submit?');
+			if(x2 == true){
+        this.ansdata.setAnswerIdx(this.ansidx);
+        this.ansdata.setAnswer(this.ans);
+        this.router.navigateByUrl("/score");
+      }
+      else ;
   }
 } 

@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class ResultComponent implements OnInit {
-  // @Input() public ans: Array<boolean>= [];
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
@@ -20,10 +19,9 @@ export class ResultComponent implements OnInit {
   constructor(
     private data: QuestionDataService,
     private ansdata: AnswerService,
-    private route: ActivatedRoute,) { }
-    // public choiceResultClasses= {
-    //   "{ 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 p-2 mb-2 ml-2 alert'""
-    // }
+    private route: ActivatedRoute,
+  ) { }
+
   ngOnInit() {
     this.soal= this.data.getQuestions();
     console.log(this.soal);
@@ -39,8 +37,8 @@ export class ResultComponent implements OnInit {
   }
 
   resultClass(value: boolean, idxQues: number, idxAns: number){
-    if(value) return 'alert alert-success col-md-12 p-2 mb-2 ml-2';
-    else if(this.ansidx[idxQues]== idxAns )return 'alert alert-danger col-md-12 p-2 mb-2 ml-2';
-    else return 'choice col-md-12 p-2 mb-2 ml-2';
+    if(value) return 'true choice col-md-12 p-2 mb-3 ml-2'; //kalo jawabannya yang ini, classnya ini.
+    else if(this.ansidx[idxQues]== idxAns )return 'wrong choice col-md-12 p-2 mb-3 ml-2';//kalo jawabannya bukan ini, tapi user jawab yang ini.
+    else return 'choice col-md-12 p-2 mb-3 ml-2';//kalo bukan jawaban yg bener dan gak dijawab user.
   }
 }

@@ -1,13 +1,9 @@
-$darkerblue: #536dfe;
-$darkerdarkblue: #4b62e5;
-$blue: #4285f4;
-$superlightblue: #ebf2fd;
-$lightblue: #dae9ff;
-$darkergreen: #53fe9a;
-$darkerdarkblue: #4be58b;
-$blue: #42f486;
-$superlightblue: #ecfdeb;
-$lightblue: #dae9ff;
+$blue5: #536dfe;
+$blue6: #3d56e0;
+$blue4: #4285f4;
+$blue2: #9dc2ff;
+$blue1: #ebf2fd;
+$blue3: #5197ff;
 
 body{
     font-family: 'Courier New', Courier, monospace;
@@ -33,4 +29,23 @@ form{
 
 .row{
     height: 100vh;
+}
+
+.btn{
+    border-radius: 0.5vw;
+}
+
+.btn-primary{
+    background-color: $blue5;
+    &:hover{
+        background-color: $blue6;
+    }
+}
+
+.btn-secondary{
+    background-color: $blue3;
+    border: none;
+    &:hover{
+        background-color: $blue4;
+    }
 }

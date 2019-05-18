@@ -7,22 +7,17 @@ import { AuthService } from '../auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent{
 
-  constructor(private authService: AuthService, private router: Router) { }
-  
   // untuk memanggil local storage yang berisi currrent user / user yang sedang menjalani quiz
-  user = JSON.parse(localStorage.getItem('currentUser'));
-
+  public user = JSON.parse(localStorage.getItem('currentUser'));
   //pendeklarasian yang nantinya akan digunakan di html
-  nama =  this.user.fName + " " + this.user.lName;
-  nim = this.user.nim;
-
-  ngOnInit() {
-  }
-
+  public nama =  this.user.fName + " " + this.user.lName;
+  public nim = this.user.nim;
   @Output() showSidebarChange = new EventEmitter();
-  showSidebar:boolean= true;
+  public showSidebar:boolean= true;
+  
+  constructor(private authService: AuthService, private router: Router) { }
 
   sidebarClicked(){
     if (this.showSidebar==true) this.showSidebar=false;

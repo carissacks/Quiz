@@ -1,5 +1,7 @@
-<countdown [style.color]="isGoingtoend ? '#b10303' : 'black'" [config]="{leftTime: waktu, notify: [ 60 ]}"
-(start)="onStart()"
-(finished)="onFinished()"
-(notify)="onNotify()"> $!h!:$!m!:$!s!
+<countdown 
+    [style.color]="isGoingtoend ? '#b10303' : 'black'" [config]="{leftTime: waktu, notify: [ 60 ]}"
+    (start)="onStart()"
+    (finished)="onFinished()"
+    (notify)="onNotify()">
+    $!h!:$!m!:$!s!
 </countdown>

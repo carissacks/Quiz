@@ -1,23 +1,20 @@
-$black1: #302e2e;
-$black2: #242424;
-$black3: #1f1f1f;
-$black4: #0f0e0e;
+$blue7: #223dd1;
+$blue6: #3d56e0;
 
 nav{
     color: white;
     text-align: right;
-    background-color: #135ba4;
+    background-color: $blue6;
 }
 
 button{
     background-color: transparent;
     border: none;
-    // height: 100%;
     margin: 0;
     border-radius: 1.5px;
     color: white;
     &:hover, &:focus{
-        background-color: #104983;
+        background-color: $blue7;
         color: white;
     }
 }

@@ -1,16 +1,26 @@
-<div class="container-fluid bg-dark p-0" id="firstContainer">
+<div class="container-fluid p-0" id="firstContainer">
   <!-----------HEADER----------->
-  <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
+  <app-header></app-header>
   <!--------END OF HEADER------->
+
   <div class="container-fluid">
+    <div class="row justify-content-start align-items-center">
 
-    <div class="row justify-content-center align-items-center">
-      <h1> Result : {{ score }} </h1>
-    </div>
+      <!-----------IMG----------->
+      <div class="col-6 m-4 mt-5 ml-5">
+        <img [src]="score > 70 ? 'assets/image/goodjob.svg' : 'assets/image/studymore.svg'" class="img-fluid img-thumbnail" id="img-result">
+      </div>
+      <!---------END OF IMG-------->
 
-    <div>
-      <button class="btn finish-btn" style="text-align: center" (click)="seeResult()">See Result</button>
+      <!-----------TEXT----------->
+      <div class="col-4 p-5 text-center">
+        <h1 *ngIf="score>70" class="my-2"> MARVELOUS!</h1> //jika nilai diatas 60
+        <h1 *ngIf="score<=70" class="my-2"> You can improve!</h1>//jika nilai sama dengan atau di bawah 60
+        <h1 class="my-2"> Result : {{ score }} / 100</h1>//kasih score
+        <button class="btn finish-btn my-3" style="text-align: center" (click)="seeResult()">See Answers</button>
+      </div>
+      <!---------END OF TEXT--------->
+      
     </div>
   </div>
-
 </div>

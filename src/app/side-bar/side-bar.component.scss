@@ -1,3 +1,15 @@
+$blue5: #536dfe;
+$blue6: #3d56e0;
+$blue4: #4285f4;
+$blue2: #9dc2ff;
+$blue1: #ebf2fd;
+$blue0: #f0f7ff;
+$blue3: #5197ff;
+$green2: #24a77b;
+$green1: #38d39f;
+$green0: #74ecc4;
+$lightgreen: #daffe0;
+
 .timer{
     font-size: 4vw;
 }
@@ -7,16 +19,17 @@
 }
 
 #finishbtn{
-    background-color: #104983;
+    background-color: $blue5;
     color: white;
     &:hover{
-        background-color: #1b62a8;
+        background-color: $blue6;
     }
 }
 
 .container{
     background-color: white;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+    height: 92vh;
 }
 
 #navQuestion{
@@ -26,8 +39,16 @@
 
 .btn-basic{
     background-color: #e2f0ff88;
+    &:hover{
+        background-color: #a8d2ff88;
+    }
 }
 
-#questionNavCont{
-    // background-color: #e2f0ff88;
+.btn-success{
+    background-color: $green0;
+    border: none;
+    color: black;
+    &:hover{
+        background-color: $green1;
+    }
 }

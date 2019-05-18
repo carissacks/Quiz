@@ -1,15 +1,21 @@
 <nav class="navbar container-fluid align-items-center justify-content-end p-0 m-0">
+  <!----------User----------->
   <div class="btn-group">
     <button type="button" class=" data-user dropdown-toggle p-3 m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="far fa-user pr-2"></i>
       {{nama}} {{nim}}
     </button>
+
     <div class="dropdown-menu p-2 pl-3">
       <i class="fas fa-sign-out-alt"></i>
       <a class="pl-3" (click)="logout()">Log out</a>
     </div>
+    
   </div>
-<!-- 
-  <button type="button" class="btn btn-dark fas fa-bars" (click)="logout()"></button> -->
-  <button type="button" class="btn p-3 px-4 fas fa-bars" (click)="sidebarClicked()"></button>
+  <!-----END OF User---->
+
+  <!--------button untuk sidebar-------->
+  <button *ngIf="showSidebarButton" type="button" class="btn p-3 px-4 fas fa-bars" (click)="sidebarClicked()"></button>
+  <!-----END OF button untuk sidebar---->
+
 </nav>

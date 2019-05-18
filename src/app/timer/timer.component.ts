@@ -25,7 +25,7 @@ export class TimerComponent implements OnInit {
     let currTime= currDate.getTime()/1000; // Dari milisecond jadi second
     let timeGiven= 300; //in seconds
     let loginTimeInSecond= (loginTime.time)/1000//Dari milisecond jadi second
-    this.waktu= (loginTimeInSecond + timeGiven)-currTime;
+    // this.waktu= (loginTimeInSecond + timeGiven)-currTime;
   }
 
   // public timeClasses ={
@@ -44,6 +44,7 @@ export class TimerComponent implements OnInit {
   }
   onFinished(){
     // console.log("aaa");
+    //mau tambahin windows.prompt tapi ngantuk.
     alert("udah kelar woi. login lagi lah.");
     this.router.navigateByUrl("/result");
   }

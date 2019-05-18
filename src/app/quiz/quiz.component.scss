@@ -1,15 +1,19 @@
-$black1: #302e2e;
-$black2: #242424;
-$black3: #1f1f1f;
-$black4: #0f0e0e;
-$grey: #f1f4f5;
+$blue5: #536dfe;
+$blue6: #3d56e0;
+$blue4: #4285f4;
+$blue2: #9dc2ff;
+$blue1: #ebf2fd;
+$blue0: #f0f7ff;
+$blue3: #5197ff;
+$darkergreen: #53fe9a;
+$darkerdarkblue: #4be58b;
+$green: #42f486;
+$superlightgreen: #ecfdeb;
+$lightgreen: #daffe0;
 
-*{
-    box-sizing: border-box;
-}
 body{
     font-family: 'Courier New', Courier, monospace;
-    background-color: white;
+    background-color: $blue1;
 }
 
 .questContainer{
@@ -22,7 +26,8 @@ body{
 }
 
 #quizPage{
-    min-height: 97.5vh;
+    min-height: 100vh;
+    background-color: $blue1;
 }
 
 .choice{
@@ -46,4 +51,22 @@ body{
 .carousel-inner{
     border-radius: 1vw;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+}
+
+.img-fluid{
+    background-color: transparent;
+    border: none;
+}
+
+#img-bottom{
+    width: 15vw;
+    // position: absolute;
+    // bottom: -15vh;
+}
+
+#img-back{
+    position: absolute;
+    bottom: 0;
+    width: 35vw;
+    opacity: 0.5;
 }

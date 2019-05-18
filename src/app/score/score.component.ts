@@ -9,6 +9,7 @@ import { Question } from '../question';
   templateUrl: './score.component.html',
   styleUrls: ['./score.component.scss']
 })
+
 export class ScoreComponent implements OnInit {
   public score: number;
   public soal: Array<Question>= [];
@@ -26,7 +27,7 @@ export class ScoreComponent implements OnInit {
     this.ans = this.ansdata.getAnswer();
     this.ansidx = this.ansdata.getAnswerIdx();
 
-    this.score = 0;
+    this.score= 0;
     for(let i = 0; i < this.ans.length; i++){
       if(this.ans[i]) this.score++;
     }

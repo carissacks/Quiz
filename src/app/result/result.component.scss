@@ -1,39 +1,69 @@
-body{
-    font-family: 'Courier New', Courier, monospace;
-}
+$blue5: #536dfe;
+$blue6: #3d56e0;
+$blue1: #ebf2fd;
+$blue0: #f0f7ff;
+$green2: #0e9266;
+$green0: #74ecc4;
+$lightgreen: #daffe0;
+$red1: #ff4625;
+$lightred: #ffd2ca;
 
-$black1: #302e2e;
-$black2: #242424;
-$black3: #1f1f1f;
-$black4: #0f0e0e;
-$grey: #f1f4f5;
-
-*{
-    box-sizing: border-box;
-}
-body{
-    font-family: 'Courier New', Courier, monospace;
+#firstContainer{
+    background-color: $blue0;
+    // background-image: url(../assets/image/footer3.svg);
 }
 
 #secondContainer{
-    background-color: $grey;
+    background-color: white;
+    border-radius: 2vh;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
 }
 
 .questContainer{
-    background: #f7f7f7;
-    font-size: 2vh;
+    font-size: 2.5vh;
 }
 
 .choice{
-    background-color: #eeeeee;
-    border-radius: 4px;
+    background-color: $blue1;
+    border-radius: 1.75vh;
+    font-size: 2.25vh;
 }
 
 .title{
     font-size: 5vh;
-    color: white;
+    color: black;
 }
 
-.alert{
-    border-radius: 4px;
+.true{
+    background-color: $lightgreen;
+    // border: solid 0.5px $green0;
+    color: $green2;
 }
+
+.wrong{
+    background-color: $lightred;
+    // border: solid 0.5px $red1;
+    color: $red1;
+}
+
+#btn-back{
+    background-color: $blue5;
+    font-size: 1.25vw;
+    border-radius: 1.5vh;
+    border: none;
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    &:hover{
+        background-color: $blue6;
+    }
+}
+
+#img-back{
+    position: absolute;
+    bottom: 0;
+    width: 50vw;
+    opacity: 0.5;
+}
+

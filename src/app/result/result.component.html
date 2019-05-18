@@ -1,49 +1,55 @@
-<div class="container-fluid bg-dark p-0" id="firstContainer">
+<div class="container-fluid p-0" id="firstContainer">
+
     <!-----------HEADER----------->
-    <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
+    <app-header></app-header>
     <!--------END OF HEADER------->
-    <div class="row">
+
+    <!-- <img src="assets/image/footer2.svg" class="img-fluid img-thumbnail" id="img-back"> -->
+
+    <div class="row m-0 p-0">
         <div class="col">
 
-        <!----------TITLE--------->
-        <div class="row title justify-content-between p-5 mb-2">
-            <h1 class="col">Result </h1>
-                <!-- mau kasih tau dia dapet berapa, benernya berapa dari berapa. -->
-        </div>
-        <!------END OF TITLE----->
-        
-        <!------QUESTION CONTAINER----->
-        <div class="container py-5 mb-5" id="secondContainer">
-          <!-- <div id="carousel" class="carousel slide" data-ride="carousel"  data-interval="false" *ngIf="soal" data-wrap="false">
-            <div class="carousel-inner d-block w-100"> -->
-
+            <!----------TITLE--------->
+            <div class="row title justify-content-center p-5 mb-2">
+                <h1 class="col-4 text-left">List of Answers</h1>
+                <h1 class="col-4 text-right pl-2">{{score}}/100</h1>
+            </div>
+            <!------END OF TITLE----->
+            
+            <!------QUESTION CONTAINER----->
+            <div class="container pb-4 pt-5 mb-5" id="secondContainer">
                 <!---------LOOP SOAL------- -->
                 <div *ngFor="let n of soal; let idxQues = index">
                     <div class="container questContainer text-justify p-3" >
                         <div class=" questionSection row">
                             <div class="no col-1 align-items-center text-center p-0 m-0">{{ idxQues+1 }}.</div>
                             <div class="col-10 p-0 m-0">
-                                <div class="question row mb-4">{{ n.question }}</div>
+                                <div class="question row mb-3">{{ n.question }}</div>
                                 <div class="choices row px-1 px-md-2">
-                        <!---------LOOP PILIHAN--------->
+                                    <!---------LOOP PILIHAN--------->
                                     <div *ngFor="let i of n.choices; let idxAns = index" [ngClass]="resultClass(i.value, idxQues, idxAns)">
-                                        <p class="m-0">
+                                        <p class="m-0 pl-2">
                                             <input type="radio" disabled="true" [checked]='ansidx[idxQues]== idxAns' name="{{ idxQues }}+'ans'" id="option" autocomplete="off"> {{ i.option }}
                                         </p>
                                     </div>
+                                    <!-----END OF LOOP PILIHAN----->
                                 </div>
                             </div>
-                    <!---------END OF LOOP SOAL------- -->
                         </div>
                     </div>
                 </div>
+                <!---------END OF LOOP SOAL------- -->
+
+                <!------------BUTTON---------- -->
                 <div>
-                    <h3> <a [routerLink]="['/score']" style="text-align: center">Back to score</a> </h3>
+                    <button id="btn-back" class="p-2 mx-3">
+                        <a [routerLink]="['/score']" class="text-center" >Back to score</a>
+                    </button>
                 </div>
-            <!-- </div>
-          </div> -->
+                <!---------END OF BUTTON------- -->
+
+            </div>
+            <!------QUESTION CONTAINER----->
         </div>
-        <!------QUESTION CONTAINER----->
-      </div>
     </div>
 </div>

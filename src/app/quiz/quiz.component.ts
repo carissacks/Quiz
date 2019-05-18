@@ -6,7 +6,6 @@ import { User } from '../user';
 import { UserdataService } from '../userdata.service';
 import { first } from 'rxjs/operators';
 import { Question } from '../question';
-// import { randomBytes } from 'crypto';
 
 @Component({
   selector: 'app-quiz',
@@ -58,7 +57,7 @@ export class QuizComponent implements OnInit {
     this.ans[idx] = jawaban;
     console.log('No.'+idx+' = '+this.ans[idx]);
   }
-  
+}
 
     // this.data.getQuestions().subscribe(data => {
     //   this.rawQuestion= data;
@@ -98,6 +97,5 @@ export class QuizComponent implements OnInit {
   //   }
   //   console.log(this.soal);
   // }
-}
   
 // }

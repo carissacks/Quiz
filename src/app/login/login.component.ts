@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // Control untuk login from
+  // Control untuk login form, getter untuk ambil value dari form
   get formControls() { return this.loginForm.controls; }
 
   login(){
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.formControls.username.value, this.formControls.password.value)
       .pipe(first())
       .subscribe( x => {
-        // untuk memanggil local storang yang disimpan di authservice
+        // untuk memanggil local storage yang disimpan di authservice
         var user = JSON.parse(localStorage.getItem('currentUser'));
         // console.log(user);
 

@@ -23,7 +23,7 @@ export class AnswerService {
 
   setAnswerIdx(ansidx: Array<number>){
     this.useransidx.next(ansidx);
-    console.log(ansidx);
+    console.log("id"+ansidx);
     this.ansidx = ansidx;
   }
 

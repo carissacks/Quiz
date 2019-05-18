@@ -2,19 +2,32 @@
     font-size: 4vw;
 }
 
-.qnaList{
+.questionNav{
     text-align: center;
 }
 
-#finishbtn:active{
-    background-color:#999999;
-}
-
 #finishbtn{
-    background-color: white;
+    background-color: #104983;
+    color: white;
+    &:hover{
+        background-color: #1b62a8;
+    }
 }
 
 .container{
-    background-color: beige;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+}
+
+#navQuestion{
+    width: 3.75vw;
+    height: 3.75vw;
+}
+
+.btn-basic{
+    background-color: #e2f0ff88;
+}
+
+#questionNavCont{
+    // background-color: #e2f0ff88;
 }

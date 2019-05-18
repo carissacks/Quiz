@@ -1,18 +1,23 @@
-<div class="container p-0">
+<div class="container p-0" style="height:92vh;">
   <!-- <div class="row timer align-items-center justify-content-center">
   <app-timer></app-timer>
   </div> -->
-  <div class="row text-center p-3 title">
+  <div class="col-12 text-center p-0 m-0 py-5 title">
     <h3>Navigasi Soal</h3>
   </div>
-  <div class="row align-items-center justify-content-center">
-    <div *ngFor="let i of soal; let x = index" class="col-1 col-md-3 m-2 qnaList">
+  <div class="row p-0 m-0 px-3 align-items-center justify-content-center" id="questionNavCont">
+    <div *ngFor="let i of soal; let x = index" class="col-1 col-md-4 m-0 my-2 questionNav">
       <!-- <div *ngIf="x%2 === 0" class="w-100 d-none d-sm-block mt-4">
       </div> -->
-      <button type="button" [class]="ans[x] == null ? 'btn btn-basic' : 'btn btn-success'" (click)="numberClicked(x)" data-target="#carousel" attr.data-slide-to="{{x}}"> {{ x+1 }} </button>
+      <button [class]="ans[x] == null ? 'btn btn-basic' : 'btn btn-success'"
+        id="navQuestion" type="button" (click)="numberClicked(x)" data-target="#carousel" attr.data-slide-to="{{x}}"> 
+        {{ x+1 }}
+      </button>
     </div>
   </div>
-  <div id="finishbtn" style="text-align: center" (click)="finishExam()">
-     FINISH EXAM
+  <div class="row p-0 m-0 py-5 align-items-center justify-content-center">
+    <button class="btn" id="finishbtn" style="text-align: center" (click)="finishExam()">
+      FINISH EXAM
+    </button>
   </div>
 </div>

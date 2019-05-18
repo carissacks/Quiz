@@ -18,7 +18,9 @@ export class ResultComponent implements OnInit {
   constructor(
     private data: QuestionDataService,
     private ansdata: AnswerService) { }
-
+    // public choiceResultClasses= {
+    //   "{ 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 p-2 mb-2 ml-2 alert'""
+    // }
   ngOnInit() {
     this.soal= this.data.getQuestions();
     console.log(this.soal);
@@ -27,4 +29,9 @@ export class ResultComponent implements OnInit {
     this.ansidx = this.ansdata.getAnswerIdx();
   }
 
+  resultClass(value: boolean, idxQues: number, idxAns: number){
+    if(value) return 'alert alert-success col-md-12 p-2 mb-2 ml-2';
+    else if(this.ansidx[idxQues]== idxAns )return 'alert alert-danger col-md-12 p-2 mb-2 ml-2';
+    else return 'choice col-md-12 p-2 mb-2 ml-2';
+  }
 }

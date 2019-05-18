@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CountdownComponent } from 'ngx-countdown';
 import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 import { Router } from '@angular/router';
+// import { AnswerService } from '../answer.service';
 
 @Component({
   selector: 'app-timer',
@@ -12,7 +13,10 @@ export class TimerComponent implements OnInit {
   public waktu: number;// Kalo mau edit time, lgsg kasih value di sini. yang this.waktu nya di comment.
   public isGoingtoend: boolean= false;
 
-  constructor(private router: Router) { }
+  constructor(
+    // private ansdata: AnswerService    
+    private router: Router
+    ) { }
 
   ngOnInit() {
     // console.log("nyala");
@@ -39,7 +43,7 @@ export class TimerComponent implements OnInit {
 
   }
   onFinished(){
-    console.log("aaa");
+    // console.log("aaa");
     alert("udah kelar woi. login lagi lah.");
     this.router.navigateByUrl("/result");
   }

@@ -3,15 +3,17 @@ $black2: #242424;
 $black3: #1f1f1f;
 $black4: #0f0e0e;
 $grey: #f1f4f5;
+
 *{
     box-sizing: border-box;
 }
 body{
     font-family: 'Courier New', Courier, monospace;
+    background-color: white;
 }
 
 .questContainer{
-    background: #f7f7f7;
+    background: #fdfdfd;
     font-size: 2.5vh;
 }
 
@@ -24,7 +26,8 @@ body{
 }
 
 .choice{
-    background-color: #eeeeee;
+    background-color: #f0f7ff;
+    border-radius: 0.5vw;
 }
 
 .fas{
@@ -38,4 +41,9 @@ body{
 
 #sideBar{
     min-height: 100%;
+}
+
+.carousel-inner{
+    border-radius: 1vw;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
 }

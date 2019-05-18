@@ -4,9 +4,10 @@
 <div class="container-fluid">
   <div class="row justify-content-center align-items-center">
     <div id="form" class="col-6 col-md-4 p-4">
-      <h1>Try Out UMN 2019</h1>
-      
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <h1 class="text-center">Try Out UMN 2019</h1>
+      <!-- <p class="text-justify">Try out ini diadakan untuk menguji kompetensi sekaligus melatih pelajar untuk menghadapi UNBK (Ujian Nasional Berbasis Komputer) tahun 2019</p>
+      <hr> -->
+      <form [formGroup]="loginForm" class="p-2 mt-4" (ngSubmit)="login()">
         <!-- Untuk penginputan username -->
         <div class="form-group">
           <label for="username" class="mb-1">Username</label>
@@ -24,9 +25,8 @@
         <div class="form-group">
           <label for="exampleInputPassword1" class="mb-1">Password</label>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+            <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
           </p>
-      
           <div *ngIf="isSubmitted && formControls.password.errors">
             <div *ngIf="formControls.password.errors.required" style="color: red">Password is required</div>
           </div>

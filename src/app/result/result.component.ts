@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Question } from '../question';
 import { QuestionDataService } from '../questiondata.service';
 import { AnswerService } from '../answer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -14,10 +15,11 @@ export class ResultComponent implements OnInit {
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
-  
+
   constructor(
     private data: QuestionDataService,
-    private ansdata: AnswerService) { }
+    private ansdata: AnswerService,
+    private route: ActivatedRoute,) { }
     // public choiceResultClasses= {
     //   "{ 'col-md-12 p-2 mb-2 ml-2 alert alert-success' : 'col-md-12 p-2 mb-2 ml-2 alert'""
     // }

@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 
 export class AnswerService {
   constructor() { }
-  private userans = new BehaviorSubject<Array<boolean>>(undefined);
-  private useransidx = new BehaviorSubject<Array<number>>(undefined);
+  private userans = new BehaviorSubject<Array<boolean>>([]);
+  private useransidx = new BehaviorSubject<Array<number>>([]);
   public ans = Array<boolean>();
   public ansidx = Array<number>();
   

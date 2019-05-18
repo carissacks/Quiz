@@ -35,14 +35,15 @@ export class SideBarComponent implements OnInit {
     // console.log(this.soal);
   }
 
-  @Output() goToQuestion =  new EventEmitter();
-  @Output() finish = new EventEmitter();
+  // @Output() goToQuestion =  new EventEmitter();
+  // @Output() finish = new EventEmitter();
 
-  numberClicked(numOfQuestion) {
-    this.goToQuestion.emit(numOfQuestion);
-  }
+  // numberClicked(numOfQuestion) {
+  //   this.goToQuestion.emit(numOfQuestion);
+  // }
 
   finishExam(){
+    //mau kasih windows.prompt buat yakinin dia mau submit apa kepencet doang
     this.ansdata.setAnswerIdx(this.ansidx);
     this.ansdata.setAnswer(this.ans);
     this.router.navigateByUrl("/result");

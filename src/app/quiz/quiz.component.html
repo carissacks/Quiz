@@ -1,21 +1,23 @@
-<div class="container-fluid p-0" id="quizPage">
+<div class="container-fluid p-0 m-0" id="quizPage">
   <!-----------HEADER----------->
   <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
   <!--------END OF HEADER------->
-  <div class="row">
-    <div class="col">
+  <div class="row p-0 m-0">
+    <div class="col p-0">
 
       <!----------TITLE--------->
-      <div class="row title justify-content-between p-5 mb-2">
-        <h1 class="col">Try Out UMN 2019 </h1> 
-        <div class="col text-right px-2 far fa-clock">
-            <app-timer></app-timer>
+      <div class= "col-12 title justify-content-between p-5 mb-2">          
+        <div class="row p-0 m-0">
+          <h1 class="col m-0">Try Out UMN 2019 </h1> 
+          <div class="col text-right far fa-clock mr-3">
+              <app-timer></app-timer>
+          </div>
         </div>
       </div>
       <!------END OF TITLE----->
       
       <!------QUESTION CONTAINER----->
-      <div class="container">
+      <div class="container mb-4">
         <div id="carousel" class="carousel slide" data-ride="carousel"  data-interval="false" *ngIf="soal" data-wrap="false">
           <div class="carousel-inner d-block w-100">
 
@@ -27,23 +29,26 @@
                   <div class="col-10 p-0 m-0">
                     <div class="question row mb-4">{{ n.question }}</div>
                     <div class="choices row px-1 px-md-2">
-                  <!---------LOOP PILIHAN--------->
-                      <div *ngFor="let i of n.choices" class="col-md-12 choice p-2 mb-2 ml-2">
+
+                      <!---------LOOP PILIHAN--------->
+                      <div *ngFor="let i of n.choices; let idxChoice= index" class="col-md-12 choice p-2 mb-2 ml-2">
                         <p class="m-0">
-                          <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, i.id, i.value)"> {{ i.option }}
+                          <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, idxChoice, i.value)"> {{ i.option }}
                         </p>
                       </div>
+                  <!------END OF LOOP PILIHAN------>
+
                     </div>
                   </div>
               <!---------END OF LOOP SOAL------- -->
             
                 </div>
-                <a *ngIf ="!isFirst" class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon fas fa-hand-point-left" aria-hidden="true"></span>
+                <a *ngIf ="!isFirst" class="carousel-control-prev ml-2" href="#carousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon fas fa-chevron-left" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
                 </a>
-                <a *ngIf ="!isLast" class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon fas fa-hand-point-right" aria-hidden="true"></span>
+                <a *ngIf ="!isLast" class="carousel-control-next mr-2" href="#carousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon fas fa-chevron-right" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
               </div>
@@ -53,10 +58,12 @@
       </div>
       <!------QUESTION CONTAINER----->
     </div>
+
     <!---------SIDE BAR------- -->
-    <div *ngIf="showSidebar" class="col-md-3 col-4 pt-0" id="sideBar">
+    <div *ngIf="showSidebar" class="col-md-2 col-3 p-0" id="sideBar">
       <app-side-bar [ans]="ans" [ansidx]="ansidx"></app-side-bar>
     </div>
     <!------END OFSIDE BAR------>
+
   </div>
 </div>

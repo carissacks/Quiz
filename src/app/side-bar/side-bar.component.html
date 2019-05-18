@@ -10,7 +10,7 @@
       <!-- <div *ngIf="x%2 === 0" class="w-100 d-none d-sm-block mt-4">
       </div> -->
       <button [class]="ans[x] == null ? 'btn btn-basic' : 'btn btn-success'"
-        id="navQuestion" type="button" (click)="numberClicked(x)" data-target="#carousel" attr.data-slide-to="{{x}}"> 
+        id="navQuestion" type="button" data-target="#carousel" attr.data-slide-to="{{x}}"> 
         {{ x+1 }}
       </button>
     </div>

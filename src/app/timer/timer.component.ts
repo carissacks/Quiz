@@ -25,7 +25,7 @@ export class TimerComponent implements OnInit {
     let currTime= currDate.getTime()/1000; // Dari milisecond jadi second
     let timeGiven= 300; //in seconds
     let loginTimeInSecond= (loginTime.time)/1000//Dari milisecond jadi second
-    // this.waktu= (loginTimeInSecond + timeGiven)-currTime;
+    this.waktu= (loginTimeInSecond + timeGiven)-currTime;
   }
 
   // public timeClasses ={

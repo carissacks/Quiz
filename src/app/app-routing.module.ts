@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResultComponent } from './result/result.component';
+import { ScoreComponent } from './score/score.component';
 import { AuthGuard } from './auth.guard';
 import { AnswerService } from './answer.service';
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'quiz', component: QuizComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
-  { path: 'result', component: ResultComponent, canActivate: [AuthGuard] }
+  { path: 'result', component: ResultComponent, canActivate: [AuthGuard] },
+  { path: 'score', component: ScoreComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

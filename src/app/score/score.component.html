@@ -1,0 +1,16 @@
+<div class="container-fluid bg-dark p-0" id="firstContainer">
+  <!-----------HEADER----------->
+  <app-header (showSidebarChange)="changeSidebar($event)"></app-header>
+  <!--------END OF HEADER------->
+  <div class="container-fluid">
+
+    <div class="row justify-content-center align-items-center">
+      <h1> Result : {{ score }} </h1>
+    </div>
+
+    <div>
+      <button class="btn finish-btn" style="text-align: center" (click)="seeResult()">See Result</button>
+    </div>
+  </div>
+
+</div>

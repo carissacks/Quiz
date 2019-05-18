@@ -18,6 +18,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './signup/signup.component';
 import { TimerComponent } from './timer/timer.component';
+import { ScoreComponent } from './score/score.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TimerComponent } from './timer/timer.component';
     SideBarComponent,
     HeaderComponent,
     SignupComponent,
-    TimerComponent
+    TimerComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,

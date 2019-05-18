@@ -16,6 +16,7 @@ export class HeaderComponent{
   public nim = this.user.nim;
   @Output() showSidebarChange = new EventEmitter();
   public showSidebar:boolean= true;
+  public showSidebarButton: boolean= true;
   
   constructor(private authService: AuthService, private router: Router) { }
 

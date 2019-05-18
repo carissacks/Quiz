@@ -14,7 +14,8 @@ export class ResultComponent implements OnInit {
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
-  
+  public score: number;
+
   constructor(
     private data: QuestionDataService,
     private ansdata: AnswerService) { }
@@ -27,6 +28,12 @@ export class ResultComponent implements OnInit {
     this.ans = this.ansdata.getAnswer();
     console.log(this.ansdata.getAnswer());
     this.ansidx = this.ansdata.getAnswerIdx();
+
+    this.score = 0;
+    for(let i = 0; i < this.ans.length; i++){
+      if(this.ans[i]) this.score++;
+    }
+    this.score = this.score*1.0/this.soal.length*100;
   }
 
   resultClass(value: boolean, idxQues: number, idxAns: number){

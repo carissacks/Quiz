@@ -46,6 +46,6 @@ export class SideBarComponent implements OnInit {
     //mau kasih windows.prompt buat yakinin dia mau submit apa kepencet doang
     this.ansdata.setAnswerIdx(this.ansidx);
     this.ansdata.setAnswer(this.ans);
-    this.router.navigateByUrl("/result");
+    this.router.navigateByUrl("/score");
   }
 } 

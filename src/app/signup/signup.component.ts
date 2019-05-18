@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  //sebagai form control di signup
+  // Control untuk signup form, getter untuk ambil value dari form
   get formControls() { return this.signupForm.controls; }
 
   onSubmit() {
@@ -44,6 +44,8 @@ export class SignupComponent implements OnInit {
 
     // Untuk melanjutkan signup di authService
     this.authService.signup(this.signupForm.value);
+
+    alert('Data telah tersimpan');
 
     // Setelah sign up berhasil maka akan teralihkan ke bagian login
     this.router.navigateByUrl('/login');

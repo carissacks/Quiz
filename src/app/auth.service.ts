@@ -31,6 +31,7 @@ export class AuthService {
   login(username: string, password: string): Observable<User[]> {
     return this.http.get<any>(`https://uas-pti.firebaseio.com/userObj.json`)
         .pipe(map(user => {
+          this.flag = false;
           for (var i in user) {
                 // console.log(user[i].fName);
                 if (username === user[i].username && password === user[i].password) {
@@ -42,7 +43,7 @@ export class AuthService {
                   this.setTime();
             }
       }
-        if (this.flag === false) {
+        if (this.flag == false) {
             localStorage.setItem('currentUser', JSON.stringify({username: "null", password: "null"}));
           }
           return user;

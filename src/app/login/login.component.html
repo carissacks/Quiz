@@ -4,9 +4,10 @@
 <div class="container-fluid">
   <div class="row justify-content-center align-items-center">
     <div id="form" class="col-6 col-md-4 p-4">
-      <h1>Try Out UMN 2019</h1>
-      
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <h1 class="text-center">Try Out UMN 2019</h1>
+      <!-- <p class="text-justify">Try out ini diadakan untuk menguji kompetensi sekaligus melatih pelajar untuk menghadapi UNBK (Ujian Nasional Berbasis Komputer) tahun 2019</p>
+      <hr> -->
+      <form [formGroup]="loginForm" class="p-2 mt-4" (ngSubmit)="login()">
         <!-- Untuk penginputan username -->
         <div class="form-group">
           <label for="username" class="mb-1">Username</label>

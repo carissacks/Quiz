@@ -1,23 +1,26 @@
-<div id="particles-js" class="container-fluid">
-</div>
+<!-- Pengguanan particle dalam tampilan dasar login -->
+<div id="particles-js" class="container-fluid"></div>
+
 <div class="container-fluid">
   <div class="row justify-content-center align-items-center">
     <div id="form" class="col-6 col-md-4 p-4">
-      <h1>Try Out SMP</h1>
+      <h1>Try Out UMN 2019</h1>
       
       <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <!-- Untuk penginputan username -->
         <div class="form-group">
           <label for="username" class="mb-1">Username</label>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.username.errors }">
             <input type="text" class="form-control" formControlName="username" placeholder="Enter Username">
           </p>
-        
+
           <div *ngIf="isSubmitted && formControls.username.errors">
             <div *ngIf="formControls.username.errors.required" style="color: red">Username is required</div>
-          </div>  
-          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-          <!-- show or hide pake parameter -->
+          </div>
+
         </div>
+
+        <!-- Untuk penginputan password -->
         <div class="form-group">
           <label for="exampleInputPassword1" class="mb-1">Password</label>
           <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
@@ -29,12 +32,12 @@
           </div>
           
         </div>
+
+        <!-- Apabila username atau password tidak cocok / terdaftar -->
         <div *ngIf="error" class="alert alert-danger">Username or Password is incorrect</div>
+
         <input class="btn btn-primary mb-1" type="submit" value="Login">
         <a [routerLink]="['/signup']" class="btn btn-secondary">Sign Up</a>
-        <!-- <button type="submit" class="btn btn-primary mb-1">Login</button>
-        <button type="submit" class="btn btn-primary">Sign up</button> -->
-        
       </form>
       
     </div>

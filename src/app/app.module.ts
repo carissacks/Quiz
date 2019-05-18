@@ -6,7 +6,8 @@ import { CountdownModule } from 'ngx-countdown';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AngularFireModule } from 'angularfire2';
-import { firebaseConfig } from './../environments/firebase.config';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +38,8 @@ import { TimerComponent } from './timer/timer.component';
     CountdownModule,
     HttpClientModule,
     NgbCarouselModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

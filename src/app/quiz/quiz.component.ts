@@ -48,7 +48,7 @@ export class QuizComponent implements OnInit {
     })
   }
   changeSidebar(show){
-    console.log('Aku ga kuat :((');
+    console.log('Aku');
     this.showSidebar= show;
     console.log(show);
   }

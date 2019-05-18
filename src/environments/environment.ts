@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false //kalo gamau ditampilin, jadi true
+  production: false, //kalo gamau ditampilin, jadi true
+  firebaseConfig: { // diambil dari firebase yang digunakan 
+    apiKey: "AIzaSyBqTpp58Z0DgIVCdAzru0Tz8RvAvscrfIA",
+    authDomain: "uas-pti.firebaseapp.com",
+    databaseURL: "https://uas-pti.firebaseio.com",
+    projectId: "uas-pti",
+    storageBucket: "uas-pti.appspot.com",
+    messagingSenderId: "172419034340"
+  }
 };
 
 /*

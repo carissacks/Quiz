@@ -17,15 +17,11 @@ export class QuizComponent implements OnInit {
   
   public users: User[] = [];
   public soal: Array<Question>= [];
-  public soals: Array<Question>= [];
   public showSidebar: boolean= false;
   public goToQuestion: number;
   public idx: number;
   public isFirst: boolean= false;
-  public carouselProp={
-    "carousel-item": true,
-    "active": this.isFirst
-  }
+
   @Input() public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
 
@@ -38,7 +34,7 @@ export class QuizComponent implements OnInit {
 
   ngOnInit() {
     this.soal= this.data.getQuestions();
-    console.log(this.soal);
+    // console.log(this.soal);
     
     this.userdataService.getUser()
       .pipe(first())
@@ -47,9 +43,9 @@ export class QuizComponent implements OnInit {
     })
   }
   changeSidebar(show){
-    console.log('Aku');
+    // console.log('Aku');
     this.showSidebar= show;
-    console.log(show);
+    // console.log(show);
   }
 
   addAns(idx, idxjawaban, jawaban){ 

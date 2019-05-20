@@ -60,14 +60,10 @@ export class AuthService {
   setTime(){
     let date= new Date();
     let time= date.getTime();
-    let hour= date.getHours();
-    let minute= date.getMinutes();
-    let second= date.getSeconds();
+    // let hour= date.getHours();
+    // let minute= date.getMinutes();
+    // let second= date.getSeconds();
     localStorage.setItem('loginTimeMiliSec', JSON.stringify({time: time}));
-    // console.log("time " + time);
-    // console.log("hour "+hour);
-    // console.log("minute " + minute);
-    // console.log("sec "+second);
   }
 
   signup(user: User){

@@ -1,22 +1,7 @@
 $blue5: #536dfe;
 $blue6: #3d56e0;
-$blue4: #4285f4;
-$blue2: #9dc2ff;
-$blue1: #ebf2fd;
-$blue0: #f0f7ff;
-$blue3: #5197ff;
-$green2: #24a77b;
 $green1: #38d39f;
 $green0: #74ecc4;
-$lightgreen: #daffe0;
-
-.timer{
-    font-size: 4vw;
-}
-
-.questionNav{
-    text-align: center;
-}
 
 #finishbtn{
     background-color: $blue5;
@@ -26,15 +11,15 @@ $lightgreen: #daffe0;
     }
 }
 
+#navQuestion{
+    width: 3.75vw;
+    height: 3.75vw;
+}
+
 .container{
     background-color: white;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
     height: 92vh;
-}
-
-#navQuestion{
-    width: 3.75vw;
-    height: 3.75vw;
 }
 
 .btn-basic{
@@ -51,4 +36,12 @@ $lightgreen: #daffe0;
     &:hover{
         background-color: $green1;
     }
+}
+
+.timer{
+    font-size: 4vw;
+}
+
+.questionNav{
+    text-align: center;
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
-import { QuestionDataService } from '../questiondata.service';
+import { AuthService } from '../services/auth.service';
+import { QuestionDataService } from '../services/questiondata.service';
 import { User } from '../user';
-import { UserdataService } from '../userdata.service';
+import { UserdataService } from '../services/userdata.service';
 import { first } from 'rxjs/operators';
 import { Question } from '../question';
 
@@ -34,7 +34,6 @@ export class QuizComponent implements OnInit {
 
   ngOnInit() {
     this.soal= this.data.getQuestions();
-    // console.log(this.soal);
     
     this.userdataService.getUser()
       .pipe(first())
@@ -43,9 +42,7 @@ export class QuizComponent implements OnInit {
     })
   }
   changeSidebar(show){
-    // console.log('Aku');
     this.showSidebar= show;
-    // console.log(show);
   }
 
   addAns(idx, idxjawaban, jawaban){ 

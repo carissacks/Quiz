@@ -7,7 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ResultComponent } from './result/result.component';
 import { ScoreComponent } from './score/score.component';
 import { AuthGuard } from './auth.guard';
-import { AnswerService } from './answer.service';
+import { AnswerService } from './services/answer.service';
 
 
 const routes: Routes = [

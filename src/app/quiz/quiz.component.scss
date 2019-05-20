@@ -1,18 +1,22 @@
-$blue5: #536dfe;
-$blue6: #3d56e0;
-$blue4: #4285f4;
-$blue2: #9dc2ff;
 $blue1: #ebf2fd;
-$blue0: #f0f7ff;
-$blue3: #5197ff;
-$darkergreen: #53fe9a;
-$darkerdarkblue: #4be58b;
-$green: #42f486;
-$superlightgreen: #ecfdeb;
-$lightgreen: #daffe0;
 
-body{
-    font-family: 'Courier New', Courier, monospace;
+#img-bottom{
+    width: 15vw;
+}
+
+#img-back{
+    position: absolute;
+    bottom: 0;
+    width: 35vw;
+    opacity: 0.5;
+}
+
+#sideBar{
+    min-height: 100%;
+}
+
+#quizPage{
+    min-height: 100vh;
     background-color: $blue1;
 }
 
@@ -23,11 +27,6 @@ body{
 
 .carousel-control-prev,.carousel-control-next{
     width: 2vw;
-}
-
-#quizPage{
-    min-height: 100vh;
-    background-color: $blue1;
 }
 
 .choice{
@@ -44,10 +43,6 @@ body{
     color: black;
 }
 
-#sideBar{
-    min-height: 100%;
-}
-
 .carousel-inner{
     border-radius: 1vw;
     box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
@@ -56,17 +51,4 @@ body{
 .img-fluid{
     background-color: transparent;
     border: none;
-}
-
-#img-bottom{
-    width: 15vw;
-    // position: absolute;
-    // bottom: -15vh;
-}
-
-#img-back{
-    position: absolute;
-    bottom: 0;
-    width: 35vw;
-    opacity: 0.5;
 }

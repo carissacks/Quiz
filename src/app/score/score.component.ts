@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { QuestionDataService } from '../questiondata.service';
-import { AnswerService } from '../answer.service';
+import { QuestionDataService } from '../services/questiondata.service';
+import { AnswerService } from '../services/answer.service';
 import { Question } from '../question';
 
 @Component({
@@ -12,6 +12,7 @@ import { Question } from '../question';
 
 export class ScoreComponent implements OnInit {
   public score: number;
+  public roundedScore: string;
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
@@ -32,6 +33,7 @@ export class ScoreComponent implements OnInit {
       if(this.ans[i]) this.score++;
     }
     this.score = this.score*1.0/this.soal.length*100;
+    this.roundedScore= this.score.toFixed(2);
   }
 
   seeResult() {

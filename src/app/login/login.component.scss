@@ -1,17 +1,11 @@
 $blue5: #536dfe;
 $blue6: #3d56e0;
 $blue4: #4285f4;
-$blue2: #9dc2ff;
-$blue1: #ebf2fd;
+$blue7: #c0d9ffee;
 $blue3: #5197ff;
 
 body{
     font-family: 'Courier New', Courier, monospace;
-}
-
-#form{
-    background: #ffff;
-    border-radius: 1.5vw;
 }
 
 form{
@@ -22,9 +16,15 @@ form{
 }
 
 #particles-js{
-    background: #000000;
+    background: $blue7;
     position: absolute;
     height: 100vh;
+}
+
+#form{
+    background: #ffff;
+    border-radius: 1.5vw;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
 }
 
 .row{

@@ -25,7 +25,11 @@
           <div class="carousel-inner d-block w-100">
 
             <!---------LOOP SOAL------- -->
-            <div *ngFor="let n of soal; let idx= index; first as isFirst; last as isLast" [class]="isFirst ? 'carousel-item active' : 'carousel-item'" id="carouselitem{{idx}}">
+            <div 
+              *ngFor="let n of soal; let idx= index; first as isFirst; last as isLast" 
+              [class]="isFirst ? 'carousel-item active' : 'carousel-item'" 
+              id="carouselitem{{idx}}"
+            >
               <div class="container questContainer text-justify p-5" >
                 <div class=" questionSection row">
                   <div class="no col-1 align-items-center text-center p-0 m-0">{{ idx+1 }}.</div>
@@ -36,7 +40,12 @@
                       <!---------LOOP PILIHAN--------->
                       <div *ngFor="let i of n.choices; let idxChoice= index" class="col-md-12 choice p-2 mb-2 ml-2">
                         <p class="m-0">
-                          <input type="radio" name="{{ idx }}+'ans'" id="option" autocomplete="off" (click)="addAns(idx, idxChoice, i.value)"> {{ i.option }}
+                          <input 
+                            type="radio" 
+                            name="{{ idx }}+'ans'" 
+                            id="option" autocomplete="off" 
+                            (click)="addAns(idx, idxChoice, i.value)
+                          "> {{ i.option }}
                         </p>
                       </div>
                   <!------END OF LOOP PILIHAN------>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../question';
-import { QuestionDataService } from '../questiondata.service';
-import { AnswerService } from '../answer.service';
+import { QuestionDataService } from '../services/questiondata.service';
+import { AnswerService } from '../services/answer.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -15,6 +15,7 @@ export class ResultComponent implements OnInit {
   public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
   public score: number;
+  public roundedScore: string;
 
   constructor(
     private data: QuestionDataService,
@@ -24,9 +25,7 @@ export class ResultComponent implements OnInit {
 
   ngOnInit() {
     this.soal= this.data.getQuestions();
-    console.log(this.soal);
     this.ans = this.ansdata.getAnswer();
-    console.log(this.ansdata.getAnswer());
     this.ansidx = this.ansdata.getAnswerIdx();
 
     this.score = 0;
@@ -34,6 +33,7 @@ export class ResultComponent implements OnInit {
       if(this.ans[i]) this.score++;
     }
     this.score = this.score*1.0/this.soal.length*100;
+    this.roundedScore= this.score.toFixed(2);
   }
 
   resultClass(value: boolean, idxQues: number, idxAns: number){

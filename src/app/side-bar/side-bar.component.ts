@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { QuizComponent } from '../quiz/quiz.component';
-import { QuestionDataService } from '../questiondata.service';
+import { QuestionDataService } from '../services/questiondata.service';
 import { Question } from '../question';
 import { Router } from '@angular/router';
-import { AnswerService } from '../answer.service';
+import { AnswerService } from '../services/answer.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -27,29 +27,17 @@ export class SideBarComponent implements OnInit {
     
   ngOnInit() {
     providers: [AnswerService];
-    // this.data.getQuestions().subscribe(data => {
-    //   this.soal = data;
-    // });
     this.soal= this.data.getQuestions();
     this.ans = this.answer.ans;
-    // console.log(this.soal);
   }
-
-  // @Output() goToQuestion =  new EventEmitter();
-  // @Output() finish = new EventEmitter();
-
-  // numberClicked(numOfQuestion) {
-  //   this.goToQuestion.emit(numOfQuestion);
-  // }
 
   finishExam(){
-    //mau kasih windows.prompt buat yakinin dia mau submit apa kepencet doang
     var x2 = confirm('Are you sure want to submit?');
-			if(x2 == true){
-        this.ansdata.setAnswerIdx(this.ansidx);
-        this.ansdata.setAnswer(this.ans);
-        this.router.navigateByUrl("/score");
-      }
-      else ;
+    if(x2 == true){
+      this.ansdata.setAnswerIdx(this.ansidx);
+      this.ansdata.setAnswer(this.ans);
+      this.router.navigateByUrl("/score");
+    }
   }
+  
 } 

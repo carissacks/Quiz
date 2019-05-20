@@ -1,30 +1,37 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent{
-
+export class HeaderComponent implements OnInit{
   // untuk memanggil local storage yang berisi currrent user / user yang sedang menjalani quiz
   public user = JSON.parse(localStorage.getItem('currentUser'));
   //pendeklarasian yang nantinya akan digunakan di html
   public nama =  this.user.fName + " " + this.user.lName;
   public nim = this.user.nim;
+  public showSidebarButton: boolean;
+  public showSidebar:boolean= false;
   @Output() showSidebarChange = new EventEmitter();
-  public showSidebar:boolean= true;
-  public showSidebarButton: boolean= true;
-  
-  constructor(private authService: AuthService, private router: Router) { }
+
+  constructor(
+    private authService: AuthService, 
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
+
+  ngOnInit() {
+    //kalo bukan page quiz, gak ada button sidebarnya.
+    let path= this.route.snapshot.routeConfig;
+    if(path.path=="quiz") this.showSidebarButton= true;
+    else this.showSidebarButton= false;
+  }
 
   sidebarClicked(){
-    if (this.showSidebar==true) this.showSidebar=false;
-    else this.showSidebar= true;
-    console.log(this.showSidebar);
-
+    this.showSidebar=!this.showSidebar;
     this.showSidebarChange.emit(this.showSidebar);
   }
   

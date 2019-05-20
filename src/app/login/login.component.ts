@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 import { Router, ActivatedRoute } from  '@angular/router';
-import { UserdataService } from '../userdata.service';
+import { UserdataService } from '../services/userdata.service';
 import { User } from  '../user';
-import { AuthService } from  '../auth.service';
+import { AuthService } from  '../services/auth.service';
 import { first } from 'rxjs/operators';
-import { QuestionDataService } from '../questiondata.service';
+import { QuestionDataService } from '../services/questiondata.service';
 
 declare var particlesJS: any;
 

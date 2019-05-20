@@ -40,11 +40,11 @@ export class QuizComponent implements OnInit {
     this.soal= this.data.getQuestions();
     console.log(this.soal);
     
-    this.userdataService.getUser()
-      .pipe(first())
-      .subscribe(users => {
-        this.users = users;
-    })
+    // this.userdataService.getUser()
+    //   .pipe(first())
+    //   .subscribe(users => {
+    //     this.users = users;
+    // })
   }
   changeSidebar(show){
     console.log('Aku');

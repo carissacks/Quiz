@@ -6,8 +6,8 @@ import { QuizComponent } from './quiz/quiz.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResultComponent } from './result/result.component';
 import { ScoreComponent } from './score/score.component';
-import { AuthGuard } from './auth.guard';
-import { ScoreGuard } from './score.guard';
+import { AuthGuard } from './guards/auth.guard';
+import { ScoreGuard } from './guards/score.guard';
 import { AnswerService } from './services/answer.service';
 import { ErrorComponent } from './error/error.component';
 

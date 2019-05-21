@@ -1,3 +1,34 @@
+$blue5: #536dfe;
+$blue6: #3d56e0;
+$blue7: #c0d9ffee;
+
+#firstContainer{
+    color: black;
+}
+
+#particles-js{
+    background-color: $blue7;
+    position: absolute;
+    height: 100vh;
+}
+
+#form{
+    background: #ffff;
+    border-radius: 1.5vw;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+}
+
 .has-error{
     border-color: #d80c0c;
+}
+
+.btn{
+    border-radius: 0.5vw;
+}
+
+.btn-primary{
+    background-color: $blue5;
+    &:hover{
+        background-color: $blue6;
+    }
 }

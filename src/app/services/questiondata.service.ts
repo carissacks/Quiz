@@ -29,7 +29,6 @@ export class QuestionDataService {
 
   randQuestion(){
     this.init= true;  
-    console.log("HHAHAHAHAHAA");
     this.getRawQuestions().subscribe(data => {
       this.rawQuestions= data;
         let i= 0;
@@ -48,10 +47,7 @@ export class QuestionDataService {
   getQuestions(): Array<Question>{
     if(this.init) return this.questions;
     else {
-      console.log("init dulu");
       this.randQuestion();
-      // console.log(this.questions);
-      // console.log(this.questions[0].getSoal());
       return this.questions;
     }
   }

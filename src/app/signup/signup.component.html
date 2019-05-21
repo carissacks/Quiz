@@ -1,66 +1,74 @@
-<div class="container">
-  <h2>Sign Up</h2>
-  <div class="jumbotron">
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <!-- Kolom first name -->
-        <div class="form-group">
-          <label for="fName">First Name</label>
-          <input type="text" formControlName="fName" class="form-control" placeholder="Enter First Name"
-              [ngClass]="{ 'is-invalid': isSubmitted && formControls.fName.errors }"/>
-            <div *ngIf="isSubmitted && formControls.fName.errors" class="invalid-feedback is-invalid">
-              <div *ngIf="formControls.fName.errors.required">First Name is required</div>
+<div id="particles-js" class="container-fluid"></div>
+
+<div class="container-fluid m-0 py-4" id="firstContainer">
+  <div class="row justify-content-center">
+    <div class="col-6">
+        <h1 class="my-4 text-center">Sign Up</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" id="form" class="p-5">
+        <!-- Kolom first name -->
+          <div class="form-group">
+            <label for="fName">First Name</label>
+            <input type="text" formControlName="fName" class="form-control" placeholder="Enter First Name"
+                [ngClass]="{ 'is-invalid': isSubmitted && formControls.fName.errors }"/>
+              <div *ngIf="isSubmitted && formControls.fName.errors" class="invalid-feedback is-invalid">
+                <div *ngIf="formControls.fName.errors.required">First Name is required</div>
+            </div>
           </div>
-        </div>
-      <!-- kolom last name -->
-        <div class="form-group">
-          <label for="lName">Last Name</label>
-          <input type="text" formControlName="lName" class="form-control" placeholder="Enter lName"
-              [ngClass]="{ 'is-invalid': isSubmitted && formControls.lName.errors }"/>
-            <div *ngIf="isSubmitted && formControls.lName.errors" class="invalid-feedback is-invalid">
-              <div *ngIf="formControls.lName.errors.required">Last Name is required</div>
+        <!-- kolom last name -->
+          <div class="form-group">
+            <label for="lName">Last Name</label>
+            <input type="text" formControlName="lName" class="form-control" placeholder="Enter Last Name"
+                [ngClass]="{ 'is-invalid': isSubmitted && formControls.lName.errors }"/>
+              <div *ngIf="isSubmitted && formControls.lName.errors" class="invalid-feedback is-invalid">
+                <div *ngIf="formControls.lName.errors.required">Last Name is required</div>
+            </div>
           </div>
-        </div>
-      <!-- kolom gender -->
-        <div class="form-group">
-          <label for="gender">Gender</label>
-          <p [ngClass]="{ 'has-error': isSubmitted && formControls.gender.errors }">          
-            <input formControlName="gender" type="radio" value="M">M<br/>
-            <input formControlName="gender" type="radio" value="F">F
-          </p>
-          <div *ngIf="isSubmitted && formControls.gender.errors">
-            <div *ngIf="formControls.gender.errors.required" style="color: red">Gender is required</div>
+        <!-- kolom gender -->
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <p [ngClass]="{ 'has-error': isSubmitted && formControls.gender.errors }">          
+              <input formControlName="gender" type="radio" value="M">  M<br/>
+              <input formControlName="gender" type="radio" value="F">  F
+            </p>
+            <div *ngIf="isSubmitted && formControls.gender.errors">
+              <div *ngIf="formControls.gender.errors.required" style="color: red">Gender is required</div>
+            </div>
           </div>
-        </div>
-      <!-- kolom nim -->
-        <div class="form-group">
-          <label for="nim">Nomor Induk Mahasiswa (NIM)</label>
-          <input type="text" formControlName="nim" class="form-control" placeholder="Enter NIM"
-              [ngClass]="{ 'is-invalid': isSubmitted && formControls.nim.errors }"/>
-            <div *ngIf="isSubmitted && formControls.nim.errors" class="invalid-feedback is-invalid">
-              <div *ngIf="formControls.nim.errors.required">NIM is required</div>
+        <!-- kolom nim -->
+          <div class="form-group">
+            <label for="nim">Nomor Induk Mahasiswa (NIM)</label>
+            <input type="text" formControlName="nim" class="form-control" placeholder="Enter NIM"
+                [ngClass]="{ 'is-invalid': isSubmitted && formControls.nim.errors }"/>
+              <div *ngIf="isSubmitted && formControls.nim.errors" class="invalid-feedback is-invalid">
+                <div *ngIf="formControls.nim.errors.required">NIM is required</div>
+            </div>
           </div>
-        </div>
-      <!-- kolom username -->
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" formControlName="username" class="form-control" placeholder="Enter Username"
-              [ngClass]="{ 'is-invalid': isSubmitted && formControls.username.errors }"/>
-            <div *ngIf="isSubmitted && formControls.username.errors" class="invalid-feedback is-invalid">
-              <div *ngIf="formControls.username.errors.required">Username is required</div>
+        <!-- kolom username -->
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" placeholder="Enter Username"
+                [ngClass]="{ 'is-invalid': isSubmitted && formControls.username.errors }"/>
+              <div *ngIf="isSubmitted && formControls.username.errors" class="invalid-feedback is-invalid">
+                <div *ngIf="formControls.username.errors.required">Username is required</div>
+            </div>
           </div>
-        </div>
-      <!-- kolom password -->
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" formControlName="password" class="form-control" placeholder="Enter Password"
-              [ngClass]="{ 'is-invalid': isSubmitted && formControls.password.errors }"/>
-            <div *ngIf="isSubmitted && formControls.password.errors" class="invalid-feedback is-invalid">
-              <div *ngIf="formControls.password.errors.required">Password is required</div>
-              <div *ngIf="formControls.password.errors.pattern">Password must be at least 1 lowercase, uppercase, number and 8 characters</div>
-          </div> 
-        </div>
-        <input class="btn btn-primary mb-1" type="submit" value="Signup">
-        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>  
-    </form>
+        <!-- kolom password -->
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" formControlName="password" class="form-control" placeholder="Enter Password"
+                [ngClass]="{ 'is-invalid': isSubmitted && formControls.password.errors }"/>
+              <div *ngIf="isSubmitted && formControls.password.errors" class="invalid-feedback is-invalid">
+                <div *ngIf="formControls.password.errors.required">Password is required</div>
+                <div *ngIf="formControls.password.errors.pattern">Password must be at least 1 lowercase, uppercase, number and 8 characters</div>
+            </div> 
+          </div>
+          <input class="btn btn-primary mb-1" type="submit" value="Register">
+          <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>  
+      </form>
+    </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <countdown 
-    [style.color]="isGoingtoend ? '#b10303' : 'black'" [config]="{leftTime: 10, notify: [ 60 ]}"
+    [style.color]="isGoingtoend ? '#b10303' : 'black'" [config]="{leftTime: waktu, notify: [ 60 ]}"
     (start)="onStart()"
     (finished)="onFinished()"
     (notify)="onNotify()">

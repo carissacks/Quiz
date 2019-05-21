@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 
+declare var particlesJS: any;
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -20,6 +22,12 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    //load particle JS
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      console.log('callback - particles.js config loaded');
+    });
+    
     this.signupForm = this.formBuilder.group({
       fName: ['', Validators.required],
       gender: ['',Validators.required],

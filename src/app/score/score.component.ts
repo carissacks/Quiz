@@ -39,18 +39,12 @@ export class ScoreComponent implements OnInit {
 
     let startTime= JSON.parse(localStorage.getItem('loginTimeMiliSec'));
     let endTime= JSON.parse(localStorage.getItem('finishTimeMiliSec'));
-    let startTimeinSec= startTime.time/1000;
-    let endTimeinSec= endTime.time/1000; 
-    console.log(startTimeinSec, endTimeinSec);
-    let timeUsedinSec= endTimeinSec- startTimeinSec;
-    console.log(timeUsedinSec);
+    let timeUsedinSec= (endTime.time/1000)- (startTime.time/1000);
     this.minUsed= (timeUsedinSec / 60).toFixed(0);
     this.secUsed= (timeUsedinSec % 60).toFixed(0);
   }
 
   seeResult() {
-    // this.ansdata.setAnswerIdx(this.ansidx);
-    // this.ansdata.setAnswer(this.ans);
     this.router.navigateByUrl("/result");
   }
 

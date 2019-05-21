@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit{
   public nim = this.user.nim;
   public showSidebarButton: boolean;
   public showSidebar:boolean= false;
+  //untuk kasih tau sidebarnya harus di show atau di hide ke quiz component
   @Output() showSidebarChange = new EventEmitter();
 
   constructor(

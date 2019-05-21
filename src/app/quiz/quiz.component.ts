@@ -1,11 +1,9 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { QuestionDataService } from '../services/questiondata.service';
 import { User } from '../user';
-import { UserdataService } from '../services/userdata.service';
-import { first } from 'rxjs/operators';
 import { Question } from '../question';
+import { AnswerService } from '../services/answer.service';
 
 @Component({
   selector: 'app-quiz',
@@ -18,7 +16,6 @@ export class QuizComponent implements OnInit {
   public users: User[] = [];
   public soal: Array<Question>= [];
   public showSidebar: boolean= false;
-  public goToQuestion: number;
   public idx: number;
   public isFirst: boolean= false;
   public finish: boolean= false;
@@ -28,14 +25,12 @@ export class QuizComponent implements OnInit {
 
   constructor(
     private data: QuestionDataService, 
-    private authService: AuthService, 
     private router: Router,
-    private userdataService: UserdataService  
+    private ansData: AnswerService
   ) { }  
 
   ngOnInit() {
     this.soal= this.data.getQuestions();
-    
     // this.userdataService.getUser()
     //   .pipe(first())
     //   .subscribe(users => {
@@ -51,46 +46,18 @@ export class QuizComponent implements OnInit {
     this.ans[idx] = jawaban;
     console.log('No.'+idx+' = '+this.ans[idx]);
   }
+
+  finishExam(){
+    var x2 = confirm('Are you sure want to submit?');
+    if(x2 == true){
+      this.ansData.setAnswerIdx(this.ansidx);
+      this.ansData.setAnswer(this.ans);
+      let date= new Date();
+      let finishTime= date.getTime();
+      localStorage.setItem('finishTimeMiliSec', JSON.stringify({time: finishTime}));
+      
+      this.router.navigateByUrl("/score");
+    }
+  }
   
 }
-
-    // this.data.getQuestions().subscribe(data => {
-    //   this.rawQuestion= data;
-    //   console.log(this.rawQuestion[0].question);
-    //   this.randomQuestion();
-    //   console.log("a");
-    // })
-
-    // this.data.getQuestions().subscribe(data => {
-    //   this.soal = data
-    // });
-    // this.soal= this.data.getQuestion();
-    // this.data.getData()
-    //   .map((question: Array<any>) =>{
-    //     let result: Array<any>= [];
-    //     if(question){
-    //       question.forEach((erg) => {
-    //         result.push(new Question(erg.id, erg.question, erg.choices,));
-    //       });
-    //     }
-    //     return result;
-    //   });
-
-  // getNumberQuestion(numb){
-  // $('#carousel').carousel(numb);
-  // }
-
-  // randomQuestion(){
-  //   let i= 0;
-  //   while(i<this.rawQuestion.length){
-  //     let a= this.random();
-  //     console.log(a);
-  //     if (this.rawQuestion[a].visited==false){
-  //       this.soal.push(new Question (this.rawQuestion[a].id, this.rawQuestion[a].question, this.rawQuestion[a].choices));
-  //       i++;
-  //     }
-  //   }
-  //   console.log(this.soal);
-  // }
-  
-// }

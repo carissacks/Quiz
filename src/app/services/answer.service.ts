@@ -28,7 +28,6 @@ export class AnswerService {
   }
 
   getAnswer(){
-    console.log("Answer: "+this.ans);
     return this.ans;
   }
 

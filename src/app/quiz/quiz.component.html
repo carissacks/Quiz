@@ -13,7 +13,7 @@
         <div class="row p-0 m-0">
           <h1 class="col m-0">Try Out UMN 2019 </h1> 
           <div class="col text-right far fa-clock mr-3">
-              <app-timer [ans]="ans" [ansidx]="ansidx"></app-timer>
+            <app-timer [ans]="ans" [ansidx]="ansidx"></app-timer>
           </div>
         </div>
       </div>
@@ -57,9 +57,8 @@
                       </button>
                     </div>
                   </div>
-              <!---------END OF LOOP SOAL------- -->
-            
                 </div>
+                <!---------ARROW------- -->
                 <a *ngIf ="!isFirst" class="carousel-control-prev ml-2" href="#carousel" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon fas fa-chevron-left" aria-hidden="true"></span>
                   <span class="sr-only">Previous</span>
@@ -68,17 +67,14 @@
                   <span class="carousel-control-next-icon fas fa-chevron-right" aria-hidden="true"></span>
                   <span class="sr-only">Next</span>
                 </a>
+                <!---------END OF ARROW------- -->
               </div>
             </div>
+            <!---------END OF LOOP SOAL------- -->
           </div>
         </div>
       </div>
       <!------QUESTION CONTAINER----->
-      <div class="col-12 m-0 p-0">
-        <!-- ​<picture> -->
-          <!-- <img src="assets/image/footer3.svg" class="img-fluid img-thumbnail" alt="hai" id="img-bottom"> -->
-        <!-- </picture> -->
-      </div>
     </div>
 
     <!---------SIDE BAR------- -->

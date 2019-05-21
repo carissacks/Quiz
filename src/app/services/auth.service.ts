@@ -52,8 +52,9 @@ export class AuthService {
 
   logout() {
       // log out untuk menghapus waktu dan current user yang ada dalam quiz dari local storage
-      localStorage.removeItem('currentUser');
-      localStorage.removeItem('loginTimeMiliSec');
+      // localStorage.removeItem('currentUser');
+      // localStorage.removeItem('loginTimeMiliSec');
+      localStorage.clear();
       this.currentUserSubject.next(null);
   }
 

@@ -51,6 +51,11 @@
                   <!------END OF LOOP PILIHAN------>
 
                     </div>
+                    <div *ngIf="isLast" class="row p-0 m-0 mt-3 justify-content-end">
+                      <button class="btn" id="finishbtn" style="text-align: center" (click)="finishExam()">
+                        FINISH EXAM
+                      </button>
+                    </div>
                   </div>
               <!---------END OF LOOP SOAL------- -->
             

@@ -7,7 +7,7 @@
 
   <!-----------QLIST----------->
   <div class="row p-0 m-0 px-3 align-items-center justify-content-center" id="questionNavCont">
-    <div *ngFor="let i of soal; let x = index" class="col-1 col-md-4 m-0 my-2 questionNav">
+    <div *ngFor="let i of soal; let x = index" class="col-4 col-md-4 m-0 my-2 questionNav">
       <button [class]="ans[x] == null ? 'btn btn-basic' : 'btn btn-success'"
         id="navQuestion" type="button" data-target="#carousel" attr.data-slide-to="{{x}}"> 
         {{ x+1 }}

@@ -16,6 +16,8 @@ export class ScoreComponent implements OnInit {
   public soal: Array<Question>= [];
   public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
+  public minUsed: string;
+  public secUsed: string;
 
   constructor(
     private router: Router,
@@ -34,6 +36,16 @@ export class ScoreComponent implements OnInit {
     }
     this.score = this.score*1.0/this.soal.length*100;
     this.roundedScore= this.score.toFixed(2);
+
+    let startTime= JSON.parse(localStorage.getItem('loginTimeMiliSec'));
+    let endTime= JSON.parse(localStorage.getItem('finishTimeMiliSec'));
+    let startTimeinSec= startTime.time/1000;
+    let endTimeinSec= endTime.time/1000; 
+    console.log(startTimeinSec, endTimeinSec);
+    let timeUsedinSec= endTimeinSec- startTimeinSec;
+    console.log(timeUsedinSec);
+    this.minUsed= (timeUsedinSec / 60).toFixed(0);
+    this.secUsed= (timeUsedinSec % 60).toFixed(0);
   }
 
   seeResult() {

@@ -7,18 +7,19 @@ import { SignupComponent } from './signup/signup.component';
 import { ResultComponent } from './result/result.component';
 import { ScoreComponent } from './score/score.component';
 import { AuthGuard } from './auth.guard';
+import { ScoreGuard } from './score.guard';
 import { AnswerService } from './services/answer.service';
 import { ErrorComponent } from './error/error.component';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login'},
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
-  { path: 'quiz', component: QuizComponent, canActivate: [AuthGuard] },
-  { path: 'signup', component: SignupComponent},
+  { path: 'quiz', component: QuizComponent, canActivate: [AuthGuard, ScoreGuard] },
+  { path: 'signup', component: SignupComponent },
   { path: 'result', component: ResultComponent, canActivate: [AuthGuard] },
   { path: 'score', component: ScoreComponent, canActivate: [AuthGuard] },
-  { path: '**', component: ErrorComponent}
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({

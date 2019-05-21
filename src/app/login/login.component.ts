@@ -18,7 +18,7 @@ declare var particlesJS: any;
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted  =  false;
-  returnUrl: string;
+  // returnUrl: string;
   error = false;
   user: User[];
 
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     this.authService.logout();
 
     // agar saat di quiz, di klik back di browser hanya tetap di login.html '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/login';
+    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/login';
   }
 
   // Control untuk login form, getter untuk ambil value dari form

@@ -11,7 +11,7 @@ import { AnswerService } from '../services/answer.service';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
-  public waktu: number;// Kalo mau edit time, lgsg kasih value di sini. yang this.waktu nya di comment.
+  public waktu: number=9000;// Kalo mau edit time, lgsg kasih value di sini. yang this.waktu nya di comment.
   public isGoingtoend: boolean= false;
   @Input() public ans: Array<boolean>= [];
   @Input() public ansidx: Array<number>= [];
@@ -30,7 +30,7 @@ export class TimerComponent implements OnInit {
     let currTime= currDate.getTime()/1000; // Dari milisecond jadi second
     let timeGiven= 300; //in seconds
     let loginTimeInSecond= (loginTime.time)/1000//Dari milisecond jadi second
-    this.waktu= (loginTimeInSecond + timeGiven)-currTime;
+    // this.waktu= (loginTimeInSecond + timeGiven)-currTime;
   }
 
   // public timeClasses ={
@@ -54,5 +54,12 @@ export class TimerComponent implements OnInit {
     this.ansdata.setAnswerIdx(this.ansidx);
     this.ansdata.setAnswer(this.ans);
     this.router.navigateByUrl("/result");
+
+    let date= new Date();
+    let finishTime= date.getTime();
+    localStorage.setItem('finishTimeMiliSec', JSON.stringify({time: finishTime}));
+    alert("Your time's up. You did your best! Let's see the result.");
+    
+    this.router.navigateByUrl("/score");
   }
 }

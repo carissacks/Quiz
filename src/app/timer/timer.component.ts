@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
-  public waktu: number;// Kalo mau edit time, lgsg kasih value di sini. yang this.waktu nya di comment.
+  public waktu: number=9000;// Kalo mau edit time, lgsg kasih value di sini. yang this.waktu nya di comment.
   public isGoingtoend: boolean= false;
 
   constructor(
@@ -25,8 +25,7 @@ export class TimerComponent implements OnInit {
     let currTime= currDate.getTime()/1000; // Dari milisecond jadi second
     let timeGiven= 300; //in seconds
     let loginTimeInSecond= (loginTime.time)/1000//Dari milisecond jadi second
-    this.waktu= (loginTimeInSecond + timeGiven)-currTime;
-    localStorage.setItem('finishTimeMiliSecs', JSON.stringify(this.waktu));
+    // this.waktu= (loginTimeInSecond + timeGiven)-currTime;
   }
 
   // public timeClasses ={
@@ -44,10 +43,12 @@ export class TimerComponent implements OnInit {
 
   }
   onFinished(){
-    // console.log("aaa");
-    //mau tambahin windows.prompt tapi ngantuk.
-    alert("Times out!");
-    console.log(this.waktu);
-    this.router.navigateByUrl("/result");
+
+    let date= new Date();
+    let finishTime= date.getTime();
+    localStorage.setItem('finishTimeMiliSec', JSON.stringify({time: finishTime}));
+    alert("Your time's up. You did your best! Let's see the result.");
+    
+    this.router.navigateByUrl("/score");
   }
 }

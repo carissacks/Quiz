@@ -36,6 +36,10 @@ export class SideBarComponent implements OnInit {
     if(x2 == true){
       this.ansdata.setAnswerIdx(this.ansidx);
       this.ansdata.setAnswer(this.ans);
+      let date= new Date();
+      let finishTime= date.getTime();
+      localStorage.setItem('finishTimeMiliSec', JSON.stringify({time: finishTime}));
+      
       this.router.navigateByUrl("/score");
     }
   }

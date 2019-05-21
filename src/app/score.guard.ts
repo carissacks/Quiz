@@ -12,13 +12,14 @@ export class ScoreGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ){
-      var time = localStorage.getItem('finishTimeMiliSecs');
+      var time = localStorage.getItem('finishTimeMiliSec');
+      console.log("haii"+time);
       
       if(time){
-        return true;
+        this.router.navigate(['/score'], { queryParams: {} });
+        return false;
       }
-      this.router.navigate(['/score'], { queryParams: {} });
-      return false;
+      return true;
   }
 
 }

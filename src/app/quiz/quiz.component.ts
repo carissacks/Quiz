@@ -21,6 +21,7 @@ export class QuizComponent implements OnInit {
   public goToQuestion: number;
   public idx: number;
   public isFirst: boolean= false;
+  public finish: boolean= false;
 
   @Input() public ans: Array<boolean>= [];
   public ansidx: Array<number>= [];
@@ -50,6 +51,7 @@ export class QuizComponent implements OnInit {
     this.ans[idx] = jawaban;
     console.log('No.'+idx+' = '+this.ans[idx]);
   }
+  
 }
 
     // this.data.getQuestions().subscribe(data => {

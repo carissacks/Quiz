@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CountdownComponent } from 'ngx-countdown';
 import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 import { Router } from '@angular/router';
+import { AnswerService } from '../services/answer.service';
 // import { AnswerService } from '../answer.service';
 
 @Component({
@@ -12,14 +13,18 @@ import { Router } from '@angular/router';
 export class TimerComponent implements OnInit {
   public waktu: number;// Kalo mau edit time, lgsg kasih value di sini. yang this.waktu nya di comment.
   public isGoingtoend: boolean= false;
+  @Input() public ans: Array<boolean>= [];
+  @Input() public ansidx: Array<number>= [];
 
   constructor(
     // private ansdata: AnswerService    
-    private router: Router
+    private router: Router,
+    private ansdata: AnswerService
     ) { }
 
   ngOnInit() {
     // console.log("nyala");
+
     let loginTime= JSON.parse(localStorage.getItem('loginTimeMiliSec'));
     let currDate= new Date();
     let currTime= currDate.getTime()/1000; // Dari milisecond jadi second
@@ -46,6 +51,8 @@ export class TimerComponent implements OnInit {
     // console.log("aaa");
     //mau tambahin windows.prompt tapi ngantuk.
     alert("udah kelar woi. login lagi lah.");
+    this.ansdata.setAnswerIdx(this.ansidx);
+    this.ansdata.setAnswer(this.ans);
     this.router.navigateByUrl("/result");
   }
 }

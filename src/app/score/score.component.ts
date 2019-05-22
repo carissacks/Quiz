@@ -35,17 +35,24 @@ export class ScoreComponent implements OnInit {
       if(this.ans[i]) this.score++;
     }
     this.score = this.score*1.0/this.soal.length*100;
-    this.roundedScore= this.score.toFixed(2);
+    this.roundedScore= this.score.toFixed(2); //pembulatan ke atas
 
     let startTime= JSON.parse(localStorage.getItem('loginTimeMiliSec'));
     let endTime= JSON.parse(localStorage.getItem('finishTimeMiliSec'));
     let timeUsedinSec= (endTime.time/1000)- (startTime.time/1000);
-    this.minUsed= (timeUsedinSec / 60).toFixed(0);
-    this.secUsed= (timeUsedinSec % 60).toFixed(0);
+    this.minUsed= this.toFixed((timeUsedinSec / 60),0);
+    this.secUsed= this.toFixed((timeUsedinSec % 60),0);
+    // console.log(this.secUsed);
   }
 
   seeResult() {
     this.router.navigateByUrl("/result");
   }
+
+  //agar tidak ada pembulatan.
+  toFixed(number: number, fixed: number) {
+    var term = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+    return number.toString().match(term)[0];
+}
 
 }

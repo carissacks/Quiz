@@ -26,7 +26,7 @@ export class TimerComponent implements OnInit {
     let loginTime= JSON.parse(localStorage.getItem('loginTimeMiliSec'));
     let currDate= new Date();
     let currTime= currDate.getTime()/1000; // Dari milisecond jadi second
-    let timeGiven= 180; //in seconds
+    let timeGiven= 181; //in seconds
     let loginTimeInSecond= (loginTime.time)/1000//Dari milisecond jadi second
     this.waktu= (loginTimeInSecond + timeGiven)-currTime;
   }

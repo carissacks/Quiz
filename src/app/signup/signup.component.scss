@@ -3,13 +3,13 @@ $blue6: #3d56e0;
 $blue7: #c0d9ffee;
 
 #firstContainer{
-    color: black;
+    background-color: $blue7;
 }
 
 #particles-js{
     background-color: $blue7;
     position: absolute;
-    height: 100vh;
+    height: 105vh;
 }
 
 #form{

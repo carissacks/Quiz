@@ -28,7 +28,7 @@
     "core-js": "^2.5.4",
     "countdown": "^2.6.0",
     "firebase": "^6.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-countdown": "^3.2.0",
     "particles.js": "^2.0.0",
     "rxjs": "~6.3.3",
